@@ -1,0 +1,2 @@
+(this["webpackJsonppowershelluniversal.adminconsole"]=this["webpackJsonppowershelluniversal.adminconsole"]||[]).push([[72],{1360:function(e,s,n){"use strict";n.r(s),n.d(s,"default",(function(){return r}));n(0);var o=n(948),t=n(945),i=n(628),l=n(4);function r(e){var s=e.totalSessions;return Object(l.jsx)(o.a,{bordered:!1,children:Object(l.jsx)(t.a,{title:"Total Sessions",value:s,valueStyle:{color:"#1890ff"},suffix:"Sessions",prefix:Object(l.jsx)(i.a,{})})})}}}]);
+//# sourceMappingURL=72.735e50f8.chunk.js.map

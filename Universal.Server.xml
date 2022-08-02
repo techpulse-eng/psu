@@ -1,0 +1,2932 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Universal.Server</name>
+    </assembly>
+    <members>
+        <member name="T:UniversalAutomation.AccessControlController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:UniversalAutomation.AliveController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.AliveController.#ctor(PowerShellUniversal.IDatabase,PowerShellUniversal.IConfigurationService,Microsoft.Extensions.Logging.ILogger{UniversalAutomation.AliveController},UniversalAutomation.Common.IAccessControlService,UniversalAutomation.IGitSyncService)">
+            <summary>
+            
+            </summary>
+            <param name="database"></param>
+            <param name="settings"></param>
+            <param name="logger"></param>
+            <param name="accessControlService"></param>
+            <param name="gitSyncService"></param>
+        </member>
+        <member name="M:UniversalAutomation.AliveController.Get">
+            <summary>
+            Returns 200 if the system is alive. If an AliveKey is specified, the system app token will be returned. 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.AliveController.Accessible">
+            <summary>
+            Returns ok if the user has access to the UA server.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalAutomation.AppTokenController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.AppTokenController.#ctor(PowerShellUniversal.IDatabase,Microsoft.Extensions.Logging.ILogger{UniversalAutomation.AppTokenController},UniversalAutomation.IIdentityService,UniversalAutomation.Common.Interfaces.IJwtGenerator,UniversalAutomation.Common.Interfaces.IAppTokenService)">
+            <summary>
+            
+            </summary>
+            <param name="database"></param>
+            <param name="logger"></param>
+            <param name="identityService"></param>
+            <param name="jwtGenerator"></param>
+            <param name="appTokenService"></param>
+        </member>
+        <member name="M:UniversalAutomation.AppTokenController.Post(PowerShellUniversal.AppToken)">
+            <summary>
+            Creates a new app token. 
+            </summary>
+            <param name="appToken">The app token to create.</param>
+            <returns>The newly created app token with the database ID populated.</returns>
+        </member>
+        <member name="M:UniversalAutomation.AppTokenController.Put(PowerShellUniversal.AppToken)">
+            <summary>
+            Updates an app token.
+            </summary>
+            <param name="appToken">The app token to update.</param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.AppTokenController.Grant">
+            <summary>
+            Gets or grants an app token for an identity
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.AppTokenController.Grant(System.Int64)">
+            <summary>
+            Gets or grants an app token for an identity
+            </summary>
+            <param name="id">The identity ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.AppTokenController.Grant(PowerShellUniversal.AppToken)">
+            <summary>
+            Grants an app token with the specified criteria.
+            </summary>
+            <param name="token">The token to grant</param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.AppTokenController.Get(System.Int64)">
+            <summary>
+            Gets an app token by ID.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.AppTokenController.Get">
+            <summary>
+            Gets all app tokens. 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.AppTokenController.Delete(System.Int64)">
+            <summary>
+            Revokes an access token.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalAutomation.CacheController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.CacheController.#ctor(Microsoft.Extensions.Caching.Memory.IMemoryCache,Microsoft.Extensions.Logging.ILogger{UniversalAutomation.ComputerController})">
+            <summary>
+            
+            </summary>
+            <param name="memoryCache"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:UniversalAutomation.CacheController.Get(System.String)">
+            <summary>
+            Returns the item cached with the key specified.
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.CacheController.Get">
+            <summary>
+            Returns all the keys in the cache. 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.CacheController.Delete(System.String)">
+            <summary>
+            Removes a key from the cache.
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.CacheController.DeleteClaims">
+            <summary>
+            Removes all cached claims. 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalAutomation.ComputerController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.ComputerController.#ctor(PowerShellUniversal.IDatabase,Microsoft.Extensions.Logging.ILogger{UniversalAutomation.ComputerController})">
+            <summary>
+            
+            </summary>
+            <param name="database"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:UniversalAutomation.ComputerController.Get(System.Int64)">
+            <summary>
+            Returns a computer by ID.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.ComputerController.Get">
+            <summary>
+            Returns all computers. 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalAutomation.ConfigurationController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.ConfigurationController.#ctor(UniversalAutomation.IUniversalConfigurationService,Microsoft.Extensions.Logging.ILogger{UniversalAutomation.ConfigurationController},UniversalAutomation.IGitSyncService)">
+            <summary>
+            
+            </summary>
+            <param name="configService"></param>
+            <param name="logger"></param>
+            <param name="gitSyncService"></param>
+        </member>
+        <member name="M:UniversalAutomation.ConfigurationController.Post">
+            <summary>
+            Reloads configuration
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.ConfigurationController.Get">
+            <summary>
+            Returns a list of the configuration files.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.ConfigurationController.GetContent(System.String)">
+            <summary>
+            Returns the content of the specified configuration file.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.ConfigurationController.WriteContent(System.String)">
+            <summary>
+            Updates the content of the specified configuration file.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalAutomation.DashboardComponentController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.DashboardComponentController.#ctor(PowerShellUniversal.IDatabase,Microsoft.Extensions.Logging.ILogger{UniversalAutomation.DashboardComponentController},UniversalAutomation.IDashboardAssetManager)">
+            <summary>
+            
+            </summary>
+            <param name="database"></param>
+            <param name="logger"></param>
+            <param name="dashboardAssetManager"></param>
+        </member>
+        <member name="M:UniversalAutomation.DashboardComponentController.Get">
+            
+        </member>
+        <member name="M:UniversalAutomation.DashboardComponentController.Delete(System.Int64)">
+            
+        </member>
+        <member name="M:UniversalAutomation.DashboardComponentController.Post(PowerShellUniversal.DashboardComponent)">
+            
+        </member>
+        <member name="T:UniversalAutomation.DashboardController">
+            <summary>
+            Manages dashboards
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.DashboardController.#ctor(PowerShellUniversal.IDatabase,Microsoft.Extensions.Logging.ILogger{UniversalAutomation.DashboardController},UniversalDashboard.Interfaces.IDashboardManager,UniversalAutomation.IUniversalConfigurationService,UniversalAutomation.IIdentityService,UniversalAutomation.IDashboardAssetManager,UniversalAutomation.Common.Interfaces.INotificationService,UniversalAutomation.IGitSyncService)">
+            <summary>
+            
+            </summary>
+            <param name="database"></param>
+            <param name="logger"></param>
+            <param name="dashboardManager"></param>
+            <param name="configService"></param>
+            <param name="identityService"></param>
+            <param name="assetManager"></param>
+            <param name="notificationService"></param>
+            <param name="gitSyncService"></param>
+        </member>
+        <member name="M:UniversalAutomation.DashboardController.Post(PowerShellUniversal.Dashboard)">
+            <summary>
+            Creates and attempts to start a dashboard.
+            </summary>
+            <param name="dashboard"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.DashboardController.Terminal(System.Int64,UniversalDashboard.Controllers.TerminalCommand)">
+            <summary>
+            Issues a command against a dashboard.
+            </summary>
+            <param name="id"></param>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.DashboardController.Put(System.Int64,PowerShellUniversal.Dashboard)">
+            <summary>
+            Updates a dashboard.
+            </summary>
+            <param name="id"></param>
+            <param name="dashboard"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.DashboardController.Start(System.Int64)">
+            <summary>
+            Starts a dashboard
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.DashboardController.RestartAsync(System.Int64)">
+            <summary>
+            Restart a dashboard
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.DashboardController.Delete(System.Int64)">
+            <summary>
+            Deletes a dashboard
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.DashboardController.StopAsync(System.Int64)">
+            <summary>
+            Stops a dashboard.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.DashboardController.GetDiagnosticsAsync">
+            <summary>
+            Returns the diagnostics for all dashboards.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.DashboardController.GetTotalSessions">
+            <summary>
+            Returns the total sessions for all dashboards.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.DashboardController.GetTotalEndpoints">
+            <summary>
+            Returns the total endpoints for all dashboards.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.DashboardController.GetTotalMemory">
+            <summary>
+            Returns the total memory for all dashboards.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.DashboardController.GetDiagnosticsAsync(System.Int64)">
+            <summary>
+            Returns the diagnostics for a dashboard.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.DashboardController.Get">
+            <summary>
+            Returns dashboards.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.DashboardController.Get(System.Int64)">
+            <summary>
+            Returns a dashboard
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.DashboardController.GetLog(System.Int64)">
+            <summary>
+            Returns the log for a dashboard.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.DashboardController.SaveModule(System.String,System.String)">
+            <summary>
+            Save / Install external module from universal marketplace into powershell universal
+            </summary>
+            <param name="name"></param>
+            <param name="version"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.DashboardController.RemoveModule(System.Int64)">
+            <summary>
+            Delete external module that was installed from universal marketplace into powershell universal
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalAutomation.DashboardFrameworkController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.DashboardFrameworkController.#ctor(PowerShellUniversal.IDatabase,Microsoft.Extensions.Logging.ILogger{UniversalAutomation.DashboardFrameworkController},UniversalAutomation.IUniversalConfigurationService,UniversalAutomation.IIdentityService,UniversalAutomation.IDashboardAssetManager)">
+            <summary>
+            
+            </summary>
+            <param name="database"></param>
+            <param name="logger"></param>
+            <param name="configurationService"></param>
+            <param name="identityService"></param>
+            <param name="assetManager"></param>
+        </member>
+        <member name="M:UniversalAutomation.DashboardFrameworkController.Get">
+            
+        </member>
+        <member name="M:UniversalAutomation.DashboardFrameworkController.GetNewest">
+            
+        </member>
+        <member name="M:UniversalAutomation.DashboardFrameworkController.Delete(System.Int64)">
+            
+        </member>
+        <member name="M:UniversalAutomation.DashboardFrameworkController.Post(PowerShellUniversal.DashboardFramework)">
+            
+        </member>
+        <member name="T:UniversalAutomation.DebuggerController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.DebuggerController.#ctor(PowerShellUniversal.IDatabase,PowerShellUniversal.IDebuggerService)">
+            <summary>
+            
+            </summary>
+            <param name="database"></param>
+            <param name="debuggerService"></param>
+        </member>
+        <member name="M:UniversalAutomation.DebuggerController.Get">
+            <summary>
+            Returns all currently waiting breakpoints.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.DebuggerController.Get(System.Int64,System.Int64)">
+            <summary>
+            Returns the breakpoint in the given process and runspace.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalAutomation.EditorController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.EditorController.Parse">
+            <summary>
+            Returns parse errors.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.EditorController.Format">
+            <summary>
+            Format a document
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.EditorController.Complete(PowerShellUniversal.CompletionRequest)">
+            <summary>
+            Returns completion items
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalAutomation.EndpointController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.EndpointController.#ctor(PowerShellUniversal.IDatabase,Microsoft.Extensions.Logging.ILogger{UniversalAutomation.EndpointController},UniversalAutomation.IUniversalConfigurationService,UniversalAutomation.IIdentityService,UniversalAutomation.IGitSyncService)">
+            <summary>
+            
+            </summary>
+            <param name="database"></param>
+            <param name="logger"></param>
+            <param name="configService"></param>
+            <param name="identityService"></param>
+            <param name="gitSyncService"></param>
+        </member>
+        <member name="M:UniversalAutomation.EndpointController.Get(System.Int64)">
+            <summary>
+            Returns a endpoint by ID.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.EndpointController.GetParts(System.Int64)">
+            <summary>
+            Returns the parts for a endpoint by ID.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.EndpointController.Get">
+            <summary>
+            Returns all endpoints. 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.EndpointController.Put(System.Int64,PowerShellUniversal.Endpoint)">
+            <summary>
+            Updates an endpoint. 
+            </summary>
+            <param name="id"></param>
+            <param name="endpoint"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.EndpointController.Post(PowerShellUniversal.Endpoint)">
+            <summary>
+            Creates a new endpoint. 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.EndpointController.Delete(System.Int64)">
+            <summary>
+            Deletes an endpoint. 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalAutomation.ExecutionEnvironmentController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.ExecutionEnvironmentController.#ctor(PowerShellUniversal.IDatabase,Microsoft.Extensions.Logging.ILogger{UniversalAutomation.ExecutionEnvironmentController},UniversalAutomation.IPowerShellResolver,UniversalAutomation.IUniversalConfigurationService,UniversalAutomation.IIdentityService,UniversalAutomation.IGitSyncService,UniversalAutomation.Common.IAccessControlService)">
+            <summary>
+            
+            </summary>
+            <param name="database"></param>
+            <param name="logger"></param>
+            <param name="resolver"></param>
+            <param name="configurationService"></param>
+            <param name="identityService"></param>
+            <param name="gitSyncService"></param>
+            <param name="accessControlService"></param>
+        </member>
+        <member name="M:UniversalAutomation.ExecutionEnvironmentController.Get">
+            <summary>
+            Returns all the registered execution environments.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.ExecutionEnvironmentController.Get(System.Int64)">
+            <summary>
+            Returns a registered execution environment based on ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.ExecutionEnvironmentController.Post(PowerShellUniversal.ExecutionEnvironment)">
+            <summary>
+            Creates a new execution environment.
+            </summary>
+            <param name="executionEnvironment"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.ExecutionEnvironmentController.Put(PowerShellUniversal.ExecutionEnvironment)">
+            <summary>
+            Updates an existing execution environment.
+            </summary>
+            <param name="executionEnvironment"></param>
+        </member>
+        <member name="M:UniversalAutomation.ExecutionEnvironmentController.Delete(System.Int64)">
+            <summary>
+            Deletes an execution environment based on ID.
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="T:UniversalAutomation.FolderController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.FolderController.#ctor(PowerShellUniversal.IDatabase,Microsoft.Extensions.Logging.ILogger{UniversalAutomation.FolderController},UniversalAutomation.IUniversalConfigurationService,UniversalAutomation.IIdentityService,UniversalAutomation.IGitSyncService)">
+            <summary>
+            
+            </summary>
+            <param name="database"></param>
+            <param name="logger"></param>
+            <param name="configService"></param>
+            <param name="identityService"></param>
+            <param name="gitSyncService"></param>
+        </member>
+        <member name="M:UniversalAutomation.FolderController.Post(PowerShellUniversal.Folder)">
+            <summary>
+            Creates a new folder. If no parent folder is specified, the folder will be created at the root. The folder will be created within the git repo and sync'd to the database.
+            </summary>
+            <param name="folder">The folder to create.</param>
+            <returns>The newly created folder with the ID populated.</returns>
+        </member>
+        <member name="M:UniversalAutomation.FolderController.Get(System.Int64)">
+            <summary>
+            Returns a folder based on ID. 
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.FolderController.Get(System.String)">
+            <summary>
+            Returns a folder based on path.
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.FolderController.GetFolders(System.String)">
+            <summary>
+            Gets folders in the specified folder.
+            </summary>
+            <param name="path">The ID of the folder.</param>
+            <returns>A collection of scripts.</returns>
+        </member>
+        <member name="M:UniversalAutomation.FolderController.Get">
+            <summary>
+            Returns all folders.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalAutomation.GitStatusController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.GitStatusController.#ctor(PowerShellUniversal.IDatabase,UniversalAutomation.IGitSyncService,UniversalAutomation.IGitService)">
+            <summary>
+            
+            </summary>
+            <param name="database"></param>
+            <param name="gitSyncService"></param>
+            <param name="gitService"></param>
+        </member>
+        <member name="M:UniversalAutomation.GitStatusController.Get">
+            <summary>
+            Returns a collection of the git sync statuses.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.GitStatusController.GetFiles(System.String)">
+            <summary>
+            Returns the changes for the specified git commit.
+            </summary>
+            <param name="sha"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.GitStatusController.GetSettings">
+            <summary>
+            Returns settings for the git sync.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalAutomation.IdentityController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.IdentityController.#ctor(PowerShellUniversal.IDatabase,UniversalAutomation.IJobService,Microsoft.Extensions.Logging.ILogger{UniversalAutomation.IdentityController})">
+            <summary>
+            
+            </summary>
+            <param name="database"></param>
+            <param name="jobService"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:UniversalAutomation.IdentityController.Get(System.Int64)">
+            <summary>
+            Returns an identity based on the ID.
+            </summary>
+            <param name="id">The ID of the identity.</param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.IdentityController.Get(System.String)">
+            <summary>
+            Returns an identity based on the name.
+            </summary>
+            <param name="name">The name of the identity.</param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.IdentityController.Post(PowerShellUniversal.Identity)">
+            <summary>
+            Creates a new identity
+            </summary>
+            <param name="identity">Identity to create.</param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.IdentityController.Put(PowerShellUniversal.Identity)">
+            <summary>
+            Updates an identity
+            </summary>
+            <param name="identity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.IdentityController.GetAppTokens(System.Int64)">
+            <summary>
+            Returns all the app tokens assigned to an identity.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.IdentityController.GetJobs(System.Int64,UniversalAutomation.ViewModels.JobPagedViewModel)">
+            <summary>
+            Returns the jobs executed by the identity.
+            </summary>
+            <param name="id"></param>
+            <param name="viewModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.IdentityController.GetScripts(System.Int64)">
+            <summary>
+            Returns all the scripts modified or created by the identity.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.IdentityController.GetSchedules(System.Int64)">
+            <summary>
+            Returns all the schedules modified or created by the identity.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.IdentityController.Get">
+            <summary>
+            Returns all identities.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.IdentityController.Delete(System.Int64)">
+            <summary>
+            Deletes a Identity based on ID.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.IdentityController.ClaimsPrincipal">
+            <summary>
+            Returns the current user's claims.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalAutomation.JobController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.JobController.#ctor(PowerShellUniversal.IDatabase,UniversalAutomation.Common.Interfaces.INotificationService,UniversalAutomation.Common.IAccessControlService)">
+            <summary>
+            
+            </summary>
+            <param name="database"></param>
+            <param name="notificationService"></param>
+            <param name="accessControlService"></param>
+        </member>
+        <member name="M:UniversalAutomation.JobController.Get(System.Int64)">
+            <summary>
+            Returns a job based on ID.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.JobController.Get(UniversalAutomation.ViewModels.JobPagedViewModel)">
+            <summary>
+            Returns a job based on Status.
+            </summary>
+            <param name="viewModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.JobController.Stop(System.Int64)">
+            <summary>
+            Cancels a running job based on ID.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.JobController.GetOutput(System.Int64)">
+            <summary>
+            Gets the output for the specified job.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.JobController.GetLogOutput(System.Int64)">
+            <summary>
+            Gets the output for the specified job.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.JobController.GetPipelineOutput(System.Int64)">
+            <summary>
+            Gets the pipeline output for the specified job.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.JobController.GetFeedback(System.Int64)">
+            <summary>
+            Gets all the feedback for the specified job.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.JobController.GetIncompleteFeedback(System.Int64)">
+            <summary>
+            Gets incomplete feedback.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.JobController.GetParameters(System.Int64)">
+            <summary>
+            Gets all the parameters for the specified job.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalAutomation.JobFeedbackController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.JobFeedbackController.#ctor(PowerShellUniversal.IDatabase,UniversalAutomation.Common.IAccessControlService)">
+            <summary>
+            
+            </summary>
+            <param name="database"></param>
+            <param name="accessControlService"></param>
+        </member>
+        <member name="M:UniversalAutomation.JobFeedbackController.Put(PowerShellUniversal.JobFeedback)">
+            <summary>
+            Updates feedback for a particular job.
+            </summary>
+            <param name="feedback"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.JobFeedbackController.Get(System.Int64)">
+            <summary>
+            Gets job feedback by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalAutomation.LoginPageController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.LoginPageController.#ctor(PowerShellUniversal.IDatabase,Microsoft.Extensions.Logging.ILogger{UniversalAutomation.LoginPageController},UniversalAutomation.IUniversalConfigurationService,PowerShellUniversal.IConfigurationService,UniversalAutomation.IIdentityService,UniversalAutomation.Common.Interfaces.ILicenseService,UniversalAutomation.IGitSyncService)">
+            <summary>
+            
+            </summary>
+            <param name="database"></param>
+            <param name="logger"></param>
+            <param name="configurationService"></param>
+            <param name="configurationService1"></param>
+            <param name="identityService"></param>
+            <param name="licenseService"></param>
+            <param name="gitSyncService"></param>
+        </member>
+        <member name="M:UniversalAutomation.LoginPageController.Get">
+            <summary>
+            Returns the login page.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.LoginPageController.Put(PowerShellUniversal.LoginPage)">
+            <summary>
+            Updates the login page.
+            </summary>
+            <param name="loginPage"></param>
+        </member>
+        <member name="T:UniversalAutomation.NotificationController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.NotificationController.#ctor(PowerShellUniversal.IDatabase,UniversalAutomation.IIdentityService)">
+            <summary>
+            
+            </summary>
+            <param name="database"></param>
+            <param name="identityService"></param>
+        </member>
+        <member name="M:UniversalAutomation.NotificationController.Post(PowerShellUniversal.Notification)">
+            <summary>
+            Creates new notification.
+            </summary>
+            <param name="notification"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.NotificationController.GetNotificationById(System.Int64)">
+            <summary>
+            Returns a notification by Id.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.NotificationController.Get">
+            <summary>
+            Returns all notifications
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.NotificationController.GetLast">
+            <summary>
+            The last 5 notifications.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.NotificationController.GetPage(UniversalAutomation.ViewModels.NotificationPagedViewModel)">
+            <summary>
+            Returns notifications with paging. 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.NotificationController.DeleteNotificationById(System.Int64)">
+            <summary>
+            Deletes a notification by Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.NotificationController.Delete">
+            <summary>
+            Deletes all notifications
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalAutomation.PageController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.PageController.#ctor(PowerShellUniversal.IDatabase,Microsoft.Extensions.Logging.ILogger{UniversalAutomation.EndpointController},UniversalAutomation.IUniversalConfigurationService,UniversalAutomation.IIdentityService,UniversalAutomation.Common.IAccessControlService,UniversalAutomation.IGitSyncService)">
+            <summary>
+            
+            </summary>
+            <param name="database"></param>
+            <param name="logger"></param>
+            <param name="configService"></param>
+            <param name="identityService"></param>
+            <param name="accessControlService"></param>
+            <param name="gitSyncService"></param>
+        </member>
+        <member name="M:UniversalAutomation.PageController.Get(System.Int64)">
+            <summary>
+            Returns a page by ID.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.PageController.ViewPages">
+            <summary>
+            Returns all pages the user has access to.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.PageController.Get">
+            <summary>
+            Returns all pages. 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.PageController.Put(System.Int64,System.Boolean)">
+            <summary>
+            Updates a page.
+            </summary>
+            <param name="id"></param>
+            <param name="ignoreContent"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.PageController.Post">
+            <summary>
+            Creates a new page. 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.PageController.Delete(System.Int64)">
+            <summary>
+            Deletes a page. 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalAutomation.RateLimitController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.RateLimitController.#ctor(PowerShellUniversal.IDatabase,UniversalAutomation.IUniversalConfigurationService,UniversalAutomation.IIdentityService,UniversalAutomation.IGitSyncService)">
+            <summary>
+            
+            </summary>
+            <param name="database"></param>
+            <param name="configService"></param>
+            <param name="identityService"></param>
+            <param name="gitSyncService"></param>
+        </member>
+        <member name="M:UniversalAutomation.RateLimitController.Get">
+            <summary>
+            Returns all rate limits.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.RateLimitController.Get(System.Int64)">
+            <summary>
+            Get rate limit by id.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.RateLimitController.Update(System.Int64,PowerShellUniversal.RateLimitRule)">
+            <summary>
+            Update rate limit by id.
+            </summary>
+            <param name="id"></param>
+            <param name="rateLimit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.RateLimitController.Post(PowerShellUniversal.RateLimitRule)">
+            <summary>
+            Add new rate limit
+            </summary>
+            <param name="rateLimit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.RateLimitController.Delete(System.Int64)">
+            <summary>
+            Deletes a rate limit
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalAutomation.RoleController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.RoleController.#ctor(PowerShellUniversal.IDatabase,UniversalAutomation.IUniversalConfigurationService,UniversalAutomation.IIdentityService,UniversalAutomation.IGitSyncService)">
+            <summary>
+            
+            </summary>
+            <param name="database"></param>
+            <param name="configService"></param>
+            <param name="identityService"></param>
+            <param name="gitSyncService"></param>
+        </member>
+        <member name="M:UniversalAutomation.RoleController.Get">
+            <summary>
+            Returns all the valid roles.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.RoleController.Get(System.String)">
+            <summary>
+            Get role by name.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.RoleController.Get(System.Int64)">
+            <summary>
+            Get role by id.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.RoleController.Update(System.Int64,PowerShellUniversal.Role)">
+            <summary>
+            Update role by id.
+            </summary>
+            <param name="id"></param>
+            <param name="role"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.RoleController.Post(PowerShellUniversal.Role)">
+            <summary>
+            Add new role
+            </summary>
+            <param name="role"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.RoleController.Delete(System.Int64)">
+            <summary>
+            Deletes a role
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.RoleController.GetIdentities(System.Int64)">
+            <summary>
+            Returns all the identities assigned to a role.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.RoleController.RemoveIdentityFromRole(System.Int64,System.Int64)">
+            <summary>
+            Remove an identity from a role.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalAutomation.ScheduleController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.ScheduleController.#ctor(PowerShellUniversal.IDatabase,UniversalAutomation.IJobService,UniversalAutomation.IIdentityService,Microsoft.Extensions.Logging.ILogger{UniversalAutomation.ScheduleController},UniversalAutomation.IUniversalConfigurationService,UniversalAutomation.IScheduleDescriptionService,UniversalAutomation.IGitSyncService)">
+            <summary>
+            
+            </summary>
+            <param name="database"></param>
+            <param name="jobService"></param>
+            <param name="identityService"></param>
+            <param name="logger"></param>
+            <param name="configService"></param>
+            <param name="scheduleDescriptionService"></param>
+            <param name="gitSyncService"></param>
+        </member>
+        <member name="M:UniversalAutomation.ScheduleController.Post(PowerShellUniversal.Schedule)">
+            <summary>
+            Creates a new schedule for a script.
+            </summary>
+            <param name="schedule"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.ScheduleController.Put(System.Int64,PowerShellUniversal.Schedule)">
+            <summary>
+            Updates a schedule for a script.
+            </summary>
+            <param name="id"></param>
+            <param name="schedule"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.ScheduleController.Get">
+            <summary>
+            Gets all schedules.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.ScheduleController.Get(System.Int64)">
+            <summary>
+            Gets a schedule based on ID.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.ScheduleController.Delete(System.Int64)">
+            <summary>
+            Deletes a schedule based on ID.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalAutomation.ScriptController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.ScriptController.#ctor(PowerShellUniversal.IDatabase,UniversalAutomation.IGitService,Microsoft.Extensions.Logging.ILogger{UniversalAutomation.ScriptController},UniversalAutomation.IIdentityService,UniversalAutomation.IUniversalConfigurationService,UniversalAutomation.IScheduleDescriptionService,UniversalAutomation.Common.Interfaces.INotificationService,UniversalAutomation.Common.IAccessControlService,PowerShellUniversal.IUniversalClient,UniversalAutomation.IGitSyncService)">
+            <summary>
+            
+            </summary>
+            <param name="database"></param>
+            <param name="gitService"></param>
+            <param name="logger"></param>
+            <param name="identityService"></param>
+            <param name="configService"></param>
+            <param name="scheduleDescriptionService"></param>
+            <param name="notificationService"></param>
+            <param name="accessControlService"></param>
+            <param name="universalClient"></param>
+            <param name="gitSyncService"></param>
+        </member>
+        <member name="M:UniversalAutomation.ScriptController.PostAsync(PowerShellUniversal.Script)">
+            <summary>
+            Creates a new script. This will add the script to the git repository and commit.
+            </summary>
+            <param name="script">The script to create.</param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.ScriptController.InvokeScriptByPath(System.Int64,PowerShellUniversal.JobContext)">
+            <summary>
+            Starts a script based on the ID.
+            </summary>
+            <param name="id">The ID of the script.</param>
+            <param name="jobContext">The context to pass to the job.</param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.ScriptController.InvokeScriptByPath(System.String,PowerShellUniversal.JobContext)">
+            <summary>
+            Starts a script based on the full path.
+            </summary>
+            <param name="scriptFullPath">The full path of the script.</param>
+            <param name="jobContext">The context to pass to the job.</param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.ScriptController.Put(PowerShellUniversal.Script)">
+            <summary>
+            Updates a script.
+            </summary>
+            <param name="script">The script to update</param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.ScriptController.GetByTagId(System.Int64)">
+            <summary>
+            Returns a script based on Tag id
+            </summary>
+            <param name="tagId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.ScriptController.Get(System.Int64)">
+            <summary>
+            Returns a script based on ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.ScriptController.Get(System.String)">
+            <summary>
+            Returns a script based on name.
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.ScriptController.GetByPath(System.String)">
+            <summary>
+            Returns a script based on full path.
+            </summary>
+            <param name="fullPath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.ScriptController.GetParametersByPath(System.String)">
+            <summary>
+            Returns the parameters for a script.
+            </summary>
+            <param name="fullPath">The name of the script.</param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.ScriptController.GetParameters(System.String)">
+            <summary>
+            Returns the parameters for a script.
+            </summary>
+            <param name="name">The name of the script.</param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.ScriptController.GetParametersById(System.Int64)">
+            <summary>
+            Returns the parameters for a script.
+            </summary>
+            <param name="id">ID of the script.</param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.ScriptController.GetJobsFromPath(System.String,UniversalAutomation.ViewModels.JobPagedViewModel)">
+            <summary>
+            Returns the jobs for a script.
+            </summary>
+            <param name="scriptFullPath">The full path to the script</param>
+            <param name="viewModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.ScriptController.GetJobs(System.String,UniversalAutomation.ViewModels.JobPagedViewModel)">
+            <summary>
+            Returns the jobs for a script.
+            </summary>
+            <param name="scriptFullPath">The full path to the script</param>
+            <param name="viewModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.ScriptController.GetJobsById(System.Int64,UniversalAutomation.ViewModels.JobPagedViewModel)">
+            <summary>
+            Returns the jobs for a script.
+            </summary>
+            <param name="id">The ID of the script.</param>
+            <param name="viewModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.ScriptController.GetTags(System.Int64)">
+            <summary>
+            Returns the tags for a script.
+            </summary>
+            <param name="id">The ID of the script.</param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.ScriptController.GetSchedules(System.Int64)">
+            <summary>
+            Returns the schedules for a script.
+            </summary>
+            <param name="id">The ID for the script.</param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.ScriptController.GetHistory(System.Int64)">
+            <summary>
+            Returns the file history for a script. This will contain the git commits and diffs for the script.
+            </summary>
+            <param name="id">The ID of the script</param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.ScriptController.Get">
+            <summary>
+            Returns all scripts.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.ScriptController.Delete(System.Int64)">
+            <summary>
+            Deletes a script.
+            </summary>
+            <param name="id">The ID of the script.</param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.ScriptController.RemoveTag(System.Int64,System.Int64)">
+            <summary>
+            Removes a tag from a script.
+            </summary>
+            <param name="scriptId">The ID of a script.</param>
+            <param name="tagToRemoveId">The ID of the tag.</param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.ScriptController.AddTag(System.Int64,System.Int64)">
+            <summary>
+            Adds a new tag to a script.
+            </summary>
+            <param name="scriptId">The ID of script.</param>
+            <param name="tagId">The ID of the tag.</param>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalAutomation.SettingsController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.SettingsController.#ctor(UniversalAutomation.IUniversalConfigurationService,PowerShellUniversal.IDatabase,UniversalAutomation.ILogConfiguration,Microsoft.Extensions.Logging.ILogger{UniversalAutomation.SettingsController},PowerShellUniversal.IConfigurationService,UniversalAutomation.IIdentityService,UniversalAutomation.IGitSyncService)">
+            <summary>
+            
+            </summary>
+            <param name="universalConfigService"></param>
+            <param name="database"></param>
+            <param name="logConfiguration"></param>
+            <param name="logger"></param>
+            <param name="configurationService"></param>
+            <param name="identityService"></param>
+            <param name="gitSyncService"></param>
+        </member>
+        <member name="M:UniversalAutomation.SettingsController.Put(PowerShellUniversal.Settings)">
+            <summary>
+            Updates the settings.
+            </summary>
+            <param name="settings"></param>
+        </member>
+        <member name="M:UniversalAutomation.SettingsController.Get">
+            <summary>
+            Gets the settings.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.SettingsController.GetAuthenticationMethods">
+            
+        </member>
+        <member name="M:UniversalAutomation.SettingsController.GetAuthenticationMethod(System.Int64)">
+            
+        </member>
+        <member name="M:UniversalAutomation.SettingsController.UpdateAuthenticationMethod(System.Int64,PowerShellUniversal.AuthenticationMethod)">
+            
+        </member>
+        <member name="T:UniversalAutomation.StatsController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.StatsController.#ctor(PowerShellUniversal.IDatabase,UniversalDashboard.Interfaces.IDashboardManager,UniversalAutomation.Common.Interfaces.ILicenseService)">
+            <summary>
+            
+            </summary>
+            <param name="database"></param>
+            <param name="dashboardManager"></param>
+            <param name="licenseService"></param>
+        </member>
+        <member name="M:UniversalAutomation.StatsController.Get">
+            <summary>
+            Returns system stats.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalAutomation.TagController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.TagController.#ctor(PowerShellUniversal.IDatabase,UniversalAutomation.IGitSyncService,UniversalAutomation.IUniversalConfigurationService,UniversalAutomation.Common.Interfaces.INotificationService,UniversalAutomation.IIdentityService,UniversalAutomation.Common.IAccessControlService)">
+            <summary>
+            
+            </summary>
+            <param name="database"></param>
+            <param name="gitSyncService"></param>
+            <param name="configService"></param>
+            <param name="notificationService"></param>
+            <param name="identityService"></param>
+            <param name="accessControlService"></param>
+        </member>
+        <member name="M:UniversalAutomation.TagController.Post(PowerShellUniversal.Tag)">
+            <summary>
+            Creates a new tag.
+            </summary>
+            <param name="tag"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.TagController.GetTagById(System.Int64)">
+            <summary>
+            Returns a tag by ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.TagController.GetTagByName(System.String)">
+            <summary>
+            Returns a tag by Name.
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.TagController.GetTags">
+            <summary>
+            Returns all tags
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.TagController.Put(System.Int64,PowerShellUniversal.Tag)">
+            <summary>
+            Updates a tag.
+            </summary>
+            <param name="id"></param>
+            <param name="tag"></param>
+        </member>
+        <member name="M:UniversalAutomation.TagController.DeleteTagById(System.Int64)">
+            <summary>
+            Deletes a tag by Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.TagController.DeleteTagByName(System.String)">
+            <summary>
+            Deletes a tag by Name
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalAutomation.TerminalController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.TerminalController.#ctor(PowerShellUniversal.IDatabase,UniversalAutomation.IUniversalConfigurationService,UniversalAutomation.IIdentityService,UniversalAutomation.IGitSyncService,PowerShellUniversal.ITerminalManager)">
+            <summary>
+            
+            </summary>
+            <param name="database"></param>
+            <param name="configService"></param>
+            <param name="identityService"></param>
+            <param name="gitSyncService"></param>
+            <param name="terminalManager"></param>
+        </member>
+        <member name="M:UniversalAutomation.TerminalController.Get">
+            <summary>
+            Returns all terminals.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.TerminalController.Get(System.String)">
+            <summary>
+            Get terminal by name.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.TerminalController.Get(System.Int64)">
+            <summary>
+            Get role by id.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.TerminalController.Update(System.Int64,PowerShellUniversal.Terminal)">
+            <summary>
+            Update terminal by id.
+            </summary>
+            <param name="id"></param>
+            <param name="terminal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.TerminalController.Post(PowerShellUniversal.Terminal)">
+            <summary>
+            Add new terminal
+            </summary>
+            <param name="terminal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.TerminalController.GetInstances">
+            <summary>
+            Returns terminal instances.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.TerminalController.NewInstance(PowerShellUniversal.Terminal)">
+            <summary>
+            Opens a terminal instance.
+            </summary>
+            <param name="terminal"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.TerminalController.InvokeCommand(System.Int64,System.String)">
+            <summary>
+            Invokes a command in the instance of the terminal.
+            </summary>
+            <param name="id"></param>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.TerminalController.StopInstance(System.Int64)">
+            <summary>
+            Terminates a terminal instance.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.TerminalController.Delete(System.Int64)">
+            <summary>
+            Deletes a terminal
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalAutomation.TriggerController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.TriggerController.#ctor(PowerShellUniversal.IDatabase,UniversalAutomation.IUniversalConfigurationService,UniversalAutomation.IIdentityService,UniversalAutomation.IGitSyncService)">
+            <summary>
+            
+            </summary>
+            <param name="database"></param>
+            <param name="configService"></param>
+            <param name="identityService"></param>
+            <param name="gitSyncService"></param>
+        </member>
+        <member name="M:UniversalAutomation.TriggerController.Get">
+            <summary>
+            Returns all the valid triggers.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.TriggerController.Get(System.Int64)">
+            <summary>
+            Returns a trigger by ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.TriggerController.Get(System.String)">
+            <summary>
+            Gets a trigger by name.
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.TriggerController.Put(PowerShellUniversal.Trigger)">
+            <summary>
+            Updates a trigger.
+            </summary>
+            <param name="trigger"></param>
+        </member>
+        <member name="M:UniversalAutomation.TriggerController.Post(PowerShellUniversal.Trigger)">
+            <summary>
+            Add new trigger
+            </summary>
+            <param name="trigger"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.TriggerController.Delete(System.Int64)">
+            <summary>
+            Deletes a trigger
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalAutomation.VariableController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.VariableController.#ctor(PowerShellUniversal.IDatabase,UniversalAutomation.IUniversalConfigurationService,UniversalAutomation.ISecretManagerService,UniversalAutomation.IIdentityService,UniversalAutomation.IGitSyncService,UniversalAutomation.Common.IAccessControlService)">
+            <summary>
+            
+            </summary>
+            <param name="database"></param>
+            <param name="configService"></param>
+            <param name="secretManagerService"></param>
+            <param name="identityService"></param>
+            <param name="gitSyncService"></param>
+            <param name="accessControlService"></param>
+        </member>
+        <member name="M:UniversalAutomation.VariableController.Put(PowerShellUniversal.Variable)">
+            <summary>
+            Updates a variable.
+            </summary>
+            <param name="variable"></param>
+        </member>
+        <member name="M:UniversalAutomation.VariableController.PutSecret(PowerShellUniversal.Variable)">
+            <summary>
+            Updates a variable.
+            </summary>
+            <param name="variable"></param>
+        </member>
+        <member name="M:UniversalAutomation.VariableController.Post(PowerShellUniversal.Variable)">
+            <summary>
+            Creates a new variable.
+            </summary>
+            <param name="variable"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.VariableController.Get(System.Int64)">
+            <summary>
+            Gets a variable by ID.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.VariableController.Get(System.String)">
+            <summary>
+            Gets a variable by name.
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.VariableController.Get">
+            <summary>
+            Gets all variables.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.VariableController.ImportSecret">
+            <summary>
+            Gets all variables.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.VariableController.Delete(System.Int64)">
+            <summary>
+            Deletes a variable by ID.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.VariableController.GetVaults">
+            <summary>
+            Retrieves secret vaults.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalAutomation.Services.JwtGenerator">
+            
+        </member>
+        <member name="M:UniversalAutomation.Services.JwtGenerator.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            
+        </member>
+        <member name="M:UniversalAutomation.Services.JwtGenerator.Generate(PowerShellUniversal.Identity,System.String[])">
+            
+        </member>
+        <member name="T:UniversalAutomation.Services.GrpcExecutionCallback">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.Services.GrpcExecutionCallback.#ctor(UniversalAutomation.ExecutionCallback)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.Services.GrpcExecutionCallback.reportRunspace(UniversalAutomationProtocol.reportRunspaceRequest,Grpc.Core.ServerCallContext)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.Services.GrpcExecutionCallback.reportProgress(UniversalAutomationProtocol.reportProgressRequest,Grpc.Core.ServerCallContext)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.Services.GrpcExecutionCallback.requestFeedback(UniversalAutomationProtocol.requestFeedbackRequest,Grpc.Core.ServerCallContext)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.Services.GrpcExecutionCallback.setAgentPort(agentPort,Grpc.Core.ServerCallContext)">
+            
+        </member>
+        <member name="M:UniversalAutomation.Services.GrpcExecutionCallback.write(UniversalAutomationProtocol.writeHostRequest,Grpc.Core.ServerCallContext)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalAutomation.Services.IntegratedProtocol">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.Services.IntegratedProtocol.#ctor(UniversalAutomation.ExecutionCallback)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:UniversalAutomation.Services.UniversalConfigurationService">
+            
+        </member>
+        <member name="M:UniversalAutomation.Services.UniversalConfigurationService.#ctor(PowerShellUniversal.IConfigurationService,PowerShellUniversal.IDatabase,Microsoft.Extensions.Logging.ILogger{UniversalAutomation.Services.UniversalConfigurationService},System.Collections.Generic.IEnumerable{UniversalAutomation.Services.IConfigurationScript})">
+            
+        </member>
+        <member name="M:UniversalAutomation.Services.UniversalConfigurationService.NotifyChange(System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.Services.UniversalConfigurationService.WriteAndSyncAsync``1(``0,PowerShellUniversal.Identity)">
+            
+        </member>
+        <member name="M:UniversalAutomation.Services.UniversalConfigurationService.RemoveAndSyncAsync``1(``0,PowerShellUniversal.Identity)">
+            
+        </member>
+        <member name="M:UniversalAutomation.Services.UniversalConfigurationService.WriteAsync(System.Object,PowerShellUniversal.Identity)">
+            
+        </member>
+        <member name="M:UniversalAutomation.Services.UniversalConfigurationService.RemoveAsync(System.Object,PowerShellUniversal.Identity)">
+            
+        </member>
+        <member name="M:UniversalAutomation.Services.UniversalConfigurationService.SyncAsync(System.Boolean)">
+            
+        </member>
+        <member name="M:UniversalAutomation.Services.UniversalConfigurationService.Dispose(System.Boolean)">
+            
+        </member>
+        <member name="M:UniversalAutomation.Services.UniversalConfigurationService.Dispose">
+            
+        </member>
+        <member name="T:UniversalAutomation.IIdentityService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.IIdentityService.GetIdentityAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.IIdentityService.GetOrCreateIdentity(System.String,PowerShellUniversal.IdentitySource)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.IIdentityService.GetAppToken">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalAutomation.IdentityService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.IdentityService.#ctor(PowerShellUniversal.IDatabase,Microsoft.AspNetCore.Http.IHttpContextAccessor,Microsoft.Extensions.Logging.ILogger{UniversalAutomation.IdentityService})">
+            <summary>
+            
+            </summary>
+            <param name="database"></param>
+            <param name="httpContextAccessor"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:UniversalAutomation.IdentityService.GetOrCreateIdentity(System.String,PowerShellUniversal.IdentitySource)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.IdentityService.GetIdentityAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.IdentityService.GetAppToken">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalAutomation.ExecutionService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.ExecutionService.#ctor(PowerShellUniversal.IDatabase,Microsoft.Extensions.Logging.ILogger{UniversalAutomation.ExecutionService},UniversalAutomation.IPowerShellResolver,PowerShellUniversal.IConfigurationService,UniversalAutomation.Common.Interfaces.IJwtGenerator,UniversalAutomation.Common.Interfaces.INotificationService,UniversalAutomation.Common.Interfaces.ILicenseService,Universal.Server.Services.IEnvironmentService,UniversalAutomation.IJobService,Microsoft.Extensions.Caching.Memory.IMemoryCache,UniversalAutomation.Common.Interfaces.IAppTokenService,System.Collections.Generic.IEnumerable{UniversalAutomation.Services.IExecutionService},System.IServiceProvider)">
+            <summary>
+            
+            </summary>
+            <param name="database"></param>
+            <param name="logger"></param>
+            <param name="powershellResolver"></param>
+            <param name="configurationService"></param>
+            <param name="jwtGenerator"></param>
+            <param name="notificationService"></param>
+            <param name="licenseService"></param>
+            <param name="environmentService"></param>
+            <param name="jobService"></param>
+            <param name="memoryCache"></param>
+            <param name="appTokenService"></param>
+            <param name="executionServices"></param>
+            <param name="serviceProvider"></param>
+        </member>
+        <member name="M:UniversalAutomation.ExecutionService.Execute(PowerShellUniversal.Script,PowerShellUniversal.Identity,System.String,PowerShellUniversal.Schedule)">
+            <summary>
+            
+            </summary>
+            <param name="script"></param>
+            <param name="identity"></param>
+            <param name="credential"></param>
+            <param name="schedule"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.ExecutionService.Execute(PowerShellUniversal.Job,PowerShellUniversal.Schedule)">
+            <summary>
+            
+            </summary>
+            <param name="job"></param>
+            <param name="schedule"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalAutomation.ExecutionCallback">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UniversalAutomation.ExecutionCallback.Output">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:UniversalAutomation.ExecutionCallback.#ctor(System.Int64,PowerShellUniversal.IDatabase,Microsoft.Extensions.Logging.ILogger,UniversalAutomation.IJobService,UniversalAutomation.Common.Interfaces.INotificationService,Microsoft.Extensions.Caching.Memory.IMemoryCache)">
+            <summary>
+            
+            </summary>
+            <param name="jobId"></param>
+            <param name="database"></param>
+            <param name="logger"></param>
+            <param name="jobService"></param>
+            <param name="notificationService"></param>
+            <param name="memoryCache"></param>
+        </member>
+        <member name="M:UniversalAutomation.ExecutionCallback.ReportRunspace(UniversalAutomationProtocol.reportRunspaceRequest)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.ExecutionCallback.ReportProgress(UniversalAutomationProtocol.reportProgressRequest)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.ExecutionCallback.RequestFeedback(UniversalAutomationProtocol.requestFeedbackRequest)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.ExecutionCallback.SetReady">
+            
+        </member>
+        <member name="M:UniversalAutomation.ExecutionCallback.Write(UniversalAutomationProtocol.writeHostRequest)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalAutomation.JobProcessManager">
+            
+        </member>
+        <member name="M:UniversalAutomation.JobProcessManager.#ctor(UniversalAutomation.ISecretManagerService,Microsoft.Extensions.Logging.ILogger{UniversalAutomation.JobProcessManager})">
+            
+        </member>
+        <member name="M:UniversalAutomation.JobProcessManager.Start(PowerShellUniversal.Job,PowerShellUniversal.ExecutionEnvironment,PowerShellUniversal.Variable,System.Boolean,System.Boolean,System.Boolean)">
+            
+        </member>
+        <member name="T:UniversalAutomation.JobService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.JobService.#ctor(Microsoft.Extensions.Logging.ILogger{UniversalAutomation.JobService},PowerShellUniversal.IDatabase,UniversalAutomation.Common.Interfaces.ILicenseService)">
+            <summary>
+            
+            </summary>
+            <param name="logger"></param>
+            <param name="database"></param>
+            <param name="licenseService"></param>
+        </member>
+        <member name="M:UniversalAutomation.JobService.Enqueue``1(System.Linq.Expressions.Expression{System.Func{``0,System.Threading.Tasks.Task}})">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="job"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.JobService.GetNextExecutionTime(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="jobId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.JobService.ScheduleJob(PowerShellUniversal.Script,PowerShellUniversal.Schedule)">
+            <summary>
+            
+            </summary>
+            <param name="script"></param>
+            <param name="schedule"></param>
+        </member>
+        <member name="M:UniversalAutomation.JobService.RemoveRecurringJob(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:UniversalAutomation.Git.GitService.StageAndCommit(PowerShellUniversal.Identity)">
+            
+        </member>
+        <member name="T:UniversalAutomation.GitSyncService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.GitSyncService.#ctor(UniversalAutomation.IGitService,PowerShellUniversal.IConfigurationService,PowerShellUniversal.IDatabase,Microsoft.Extensions.Logging.ILogger{UniversalAutomation.GitSyncService},UniversalAutomation.IUniversalConfigurationService,UniversalAutomation.IDashboardAssetManager,UniversalAutomation.Common.Interfaces.ILicenseService,UniversalAutomation.Common.Interfaces.INotificationService)">
+            <summary>
+            
+            </summary>
+            <param name="gitService"></param>
+            <param name="configurationService"></param>
+            <param name="database"></param>
+            <param name="logger"></param>
+            <param name="universalConfigService"></param>
+            <param name="dashboardAssetManager"></param>
+            <param name="licenseService"></param>
+            <param name="notificationService"></param>
+        </member>
+        <member name="M:UniversalAutomation.GitSyncService.Sync">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:UniversalAutomation.GroomService">
+            
+            
+        </member>
+        <member name="M:UniversalAutomation.GroomService.#ctor(PowerShellUniversal.IDatabase,Microsoft.Extensions.Logging.ILogger{UniversalAutomation.GroomService},UniversalAutomation.Common.Interfaces.IAppTokenService,PowerShellUniversal.ITerminalManager)">
+            
+            
+        </member>
+        <member name="M:UniversalAutomation.GroomService.Groom">
+            
+            
+        </member>
+        <member name="T:UniversalAutomation.ILogConfiguration">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.ILogConfiguration.Configure(PowerShellUniversal.Settings)">
+            <summary>
+            
+            </summary>
+            <param name="settings"></param>
+        </member>
+        <member name="T:UniversalAutomation.LogConfiguration">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.LogConfiguration.#ctor">
+            
+        </member>
+        <member name="M:UniversalAutomation.LogConfiguration.#ctor(Microsoft.Extensions.Logging.ILogger{UniversalAutomation.LogConfiguration},Microsoft.Extensions.Configuration.IConfiguration)">
+            
+        </member>
+        <member name="M:UniversalAutomation.LogConfiguration.Configure(PowerShellUniversal.Settings)">
+            <summary>
+            
+            </summary>
+            <param name="settings"></param>
+        </member>
+        <member name="T:UniversalAutomation.PowerShellSerializer`1">
+            
+        </member>
+        <member name="M:UniversalAutomation.PowerShellSerializer`1.Deserialize(System.String,PowerShellUniversal.IDatabase,PowerShellUniversal.IConfigurationService)">
+            
+        </member>
+        <member name="M:UniversalAutomation.PowerShellSerializer`1.Serialize(System.Collections.Generic.IEnumerable{`0})">
+            
+        </member>
+        <member name="T:UniversalAutomation.IScheduleDescriptionService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.IScheduleDescriptionService.SetDescription(PowerShellUniversal.Schedule)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:UniversalAutomation.ScheduleDescriptionService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.ScheduleDescriptionService.#ctor(UniversalAutomation.IJobService,Microsoft.Extensions.Logging.ILogger{UniversalAutomation.IScheduleDescriptionService})">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.ScheduleDescriptionService.SetDescription(PowerShellUniversal.Schedule)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:UniversalAutomation.StartupService">
+            
+        </member>
+        <member name="M:UniversalAutomation.StartupService.#ctor(PowerShellUniversal.IDatabase,UniversalAutomation.IGitSyncService,UniversalDashboard.Interfaces.IDashboardManager,Universal.ISecurityProxy,UniversalAutomation.IDashboardAssetManager,Microsoft.Extensions.Logging.ILogger{UniversalAutomation.StartupService},UniversalAutomation.IApiProxy,UniversalAutomation.IUniversalConfigurationService,UniversalAutomation.IJobService,UniversalAutomation.Common.Interfaces.IAppTokenService,Universal.Server.Services.UniversalService,Microsoft.Extensions.Configuration.IConfiguration,UniversalAutomation.ISecretManagerService)">
+            
+        </member>
+        <member name="T:UniversalAutomation.VariableResolver">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.VariableResolver.#ctor(PowerShellUniversal.IDatabase)">
+            <summary>
+            
+            </summary>
+            <param name="database"></param>
+        </member>
+        <member name="M:UniversalAutomation.VariableResolver.GetVariables(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="specifier"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalAutomation.IAccessTokenService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.IAccessTokenService.GetAccessTokenAsync(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            
+            </summary>
+            <param name="httpContext"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalAutomation.AccessTokenService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.AccessTokenService.GetAccessTokenAsync(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            
+            </summary>
+            <param name="httpContext"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalAutomation.IDotSourceReplacer">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.IDotSourceReplacer.Replace(System.String,System.Management.Automation.Language.Ast)">
+            <summary>
+            
+            </summary>
+            <param name="root"></param>
+            <param name="ast"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalAutomation.DotSourceReplacer">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.DotSourceReplacer.#ctor(PowerShellUniversal.IDatabase,UniversalAutomation.IGitService)">
+            <summary>
+            
+            </summary>
+            <param name="database"></param>
+            <param name="gitService"></param>
+        </member>
+        <member name="M:UniversalAutomation.DotSourceReplacer.Replace(System.String,System.Management.Automation.Language.Ast)">
+            <summary>
+            
+            </summary>
+            <param name="root"></param>
+            <param name="ast"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalAutomation.PowerShellResolver">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.PowerShellResolver.#ctor(PowerShellUniversal.IDatabase,Microsoft.Extensions.Logging.ILogger{UniversalAutomation.PowerShellResolver})">
+            <summary>
+            
+            </summary>
+            <param name="database"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:UniversalAutomation.PowerShellResolver.GetPowerShellVersion(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="specifier"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.PowerShellResolver.GetInstalledVersions">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalAutomation.ScriptParameterParser">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.ScriptParameterParser.SerializeParameter(PowerShellUniversal.JobParameter)">
+            
+        </member>
+        <member name="M:UniversalAutomation.ScriptParameterParser.GetParameters(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="script"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.ScriptParameterParser.GetParameters(System.Management.Automation.ScriptBlock)">
+            <summary>
+            
+            </summary>
+            <param name="scriptBlock"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalAutomation.UaTimeZoneResolver">
+            <summary>
+            Resolves timezone using NodaTime's Tzdb.
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.UaTimeZoneResolver.GetTimeZoneById(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="timeZoneId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalAutomation.IVariableLocatorService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.IVariableLocatorService.GetVariablesPresentInScriptBlock(System.Management.Automation.ScriptBlock)">
+            <summary>
+            
+            </summary>
+            <param name="scriptBlock"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalAutomation.VariableLocatorService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.VariableLocatorService.#ctor(PowerShellUniversal.IDatabase,Microsoft.Extensions.Logging.ILogger{UniversalAutomation.VariableLocatorService})">
+            <summary>
+            
+            </summary>
+            <param name="database"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:UniversalAutomation.VariableLocatorService.GetVariablesPresentInScriptBlock(System.Management.Automation.ScriptBlock)">
+            <summary>
+            
+            </summary>
+            <param name="scriptBlock"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalDashboard.Controllers.Credential">
+            <summary>
+            Credential
+            </summary>
+        </member>
+        <member name="P:UniversalDashboard.Controllers.Credential.UserName">
+            <summary>
+            UserName
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:UniversalDashboard.Controllers.Credential.Password">
+            <summary>
+            Password
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:UniversalDashboard.Controllers.AuthenticationController">
+            <summary>
+            Authenticates users using basic authentication.
+            </summary>
+        </member>
+        <member name="M:UniversalDashboard.Controllers.AuthenticationController.#ctor(PowerShellUniversal.IDatabase,Universal.ISecurityProxy,Microsoft.Extensions.Logging.ILogger{UniversalDashboard.Controllers.AuthenticationController},PowerShellUniversal.IConfigurationService)">
+            <summary>
+            
+            </summary>
+            <param name="database"></param>
+            <param name="securityProxy"></param>
+            <param name="logger"></param>
+            <param name="configService"></param>
+        </member>
+        <member name="M:UniversalDashboard.Controllers.AuthenticationController.SignIn(UniversalDashboard.Controllers.Credential)">
+            <summary>
+            Sign in using the specified credential.
+            </summary>
+            <param name="credential">The credential for sign in.</param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalDashboard.Controllers.AuthenticationController.SignOut">
+            <summary>
+            Sign out
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalDashboard.Controllers.AuthenticationController.GetAuthenticationMethod">
+            <summary>
+            Returns the auth method used to login.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalDashboard.Controllers.SessionController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalDashboard.Controllers.SessionController.#ctor(UniversalDashboard.Interfaces.IDashboardManager,UniversalAutomation.Common.Interfaces.ILicenseService)">
+            <summary>
+            
+            </summary>
+            <param name="dashboardManager"></param>
+            <param name="licenseService"></param>
+        </member>
+        <member name="M:UniversalDashboard.Controllers.SessionController.Index(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="sessionId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalDashboard.Controllers.UDComponentController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalDashboard.Controllers.UDComponentController.#ctor(UniversalDashboard.Interfaces.IDashboardManager,Microsoft.Extensions.Logging.ILogger{UniversalDashboard.Controllers.UDComponentController},UniversalAutomation.Common.Interfaces.ILicenseService,PowerShellUniversal.IDatabase)">
+            <summary>
+            
+            </summary>
+            <param name="dashboardManager"></param>
+            <param name="logger"></param>
+            <param name="licenseService"></param>
+            <param name="database"></param>
+        </member>
+        <member name="M:UniversalDashboard.Controllers.UDComponentController.Element(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalDashboard.Controllers.UDComponentController.ElementPost(System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <param name="form"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalDashboard.Controllers.UDComponentController.SetElementSessionState(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="requestId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalDashboard.Controllers.TerminalCommand">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UniversalDashboard.Controllers.TerminalCommand.Command">
+            <summary>
+            
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:UniversalDashboard.Controllers.UDDashboardController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalDashboard.Controllers.UDDashboardController.#ctor(UniversalDashboard.Interfaces.IDashboardManager,PowerShellUniversal.IDatabase,UniversalAutomation.Common.Interfaces.IJwtGenerator,PowerShellUniversal.IConfigurationService,UniversalAutomation.Common.Interfaces.ILicenseService,UniversalAutomation.Common.Interfaces.IAppTokenService)">
+            <summary>
+            
+            </summary>
+            <param name="dashboardManager"></param>
+            <param name="database"></param>
+            <param name="jwtGenerator"></param>
+            <param name="configurationService"></param>
+            <param name="licenseService"></param>
+            <param name="appTokenService"></param>
+        </member>
+        <member name="M:UniversalDashboard.Controllers.UDDashboardController.Index">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalDashboard.DashboardHub">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalDashboard.DashboardHub.#ctor(UniversalDashboard.Interfaces.IDashboardManager,Microsoft.Extensions.Logging.ILogger{UniversalDashboard.DashboardHub})">
+            <summary>
+            
+            </summary>
+            <param name="dashboardManager"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:UniversalDashboard.DashboardHub.OnConnectedAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalDashboard.DashboardHub.OnDisconnectedAsync(System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="exception"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalDashboard.DashboardHub.SetSessionId(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="sessionId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalDashboard.DashboardHub.Reload">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalDashboard.DashboardHub.Start">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalDashboard.DashboardHub.Stop">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalDashboard.DashboardHub.UnregisterEvent(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="endpointId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalDashboard.DashboardHub.ClientEvent(System.String,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="eventId"></param>
+            <param name="eventName"></param>
+            <param name="eventData"></param>
+            <param name="location"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalDashboard.NotificationHubExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalDashboard.NotificationHubExtensions.LicenseChanged(Microsoft.AspNetCore.SignalR.IHubContext{UniversalDashboard.NotificationHub})">
+            <summary>
+            
+            </summary>
+            <param name="hub"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalDashboard.NotificationHubExtensions.StatsChanged(Microsoft.AspNetCore.SignalR.IHubContext{UniversalDashboard.NotificationHub})">
+            <summary>
+            
+            </summary>
+            <param name="hub"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalDashboard.NotificationHubExtensions.UpdateAvailable(Microsoft.AspNetCore.SignalR.IHubContext{UniversalDashboard.NotificationHub})">
+            <summary>
+            
+            </summary>
+            <param name="hub"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalDashboard.NotificationHubExtensions.JobStarted(Microsoft.AspNetCore.SignalR.IHubContext{UniversalDashboard.NotificationHub},System.String)">
+            <summary>
+            
+            </summary>
+            <param name="hub"></param>
+            <param name="job"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalDashboard.NotificationHubExtensions.JobCanceled(Microsoft.AspNetCore.SignalR.IHubContext{UniversalDashboard.NotificationHub},System.String)">
+            <summary>
+            
+            </summary>
+            <param name="hub"></param>
+            <param name="job"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalDashboard.NotificationHubExtensions.JobFailed(Microsoft.AspNetCore.SignalR.IHubContext{UniversalDashboard.NotificationHub},System.String)">
+            <summary>
+            
+            </summary>
+            <param name="hub"></param>
+            <param name="job"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalDashboard.NotificationHubExtensions.JobCompleted(Microsoft.AspNetCore.SignalR.IHubContext{UniversalDashboard.NotificationHub},System.String)">
+            <summary>
+            
+            </summary>
+            <param name="hub"></param>
+            <param name="job"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalDashboard.NotificationHubExtensions.JobCanceling(Microsoft.AspNetCore.SignalR.IHubContext{UniversalDashboard.NotificationHub},System.String)">
+            <summary>
+            
+            </summary>
+            <param name="hub"></param>
+            <param name="job"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalDashboard.NotificationHubExtensions.JobWaitingOnFeedback(Microsoft.AspNetCore.SignalR.IHubContext{UniversalDashboard.NotificationHub},System.String)">
+            <summary>
+            
+            </summary>
+            <param name="hub"></param>
+            <param name="job"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalDashboard.NotificationHubExtensions.SendNotification(Microsoft.AspNetCore.SignalR.IHubContext{UniversalDashboard.NotificationHub},System.String)">
+            <summary>
+            
+            </summary>
+            <param name="hub"></param>
+            <param name="notification"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalDashboard.NotificationHubExtensions.JobRunning(Microsoft.AspNetCore.SignalR.IHubContext{UniversalDashboard.NotificationHub},System.String)">
+            <summary>
+            
+            </summary>
+            <param name="hub"></param>
+            <param name="job"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalDashboard.NotificationHubExtensions.SendJobStreamOutput(Microsoft.AspNetCore.SignalR.IHubContext{UniversalDashboard.NotificationHub},System.String)">
+            <summary>
+            
+            </summary>
+            <param name="hub"></param>
+            <param name="outputToStream"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalDashboard.NotificationHubExtensions.SendJobPipelineOutput(Microsoft.AspNetCore.SignalR.IHubContext{UniversalDashboard.NotificationHub},System.String)">
+            <summary>
+            
+            </summary>
+            <param name="hub"></param>
+            <param name="pipelineOutput"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalDashboard.NotificationHubExtensions.SendJobLog(Microsoft.AspNetCore.SignalR.IHubContext{UniversalDashboard.NotificationHub},System.String)">
+            <summary>
+            
+            </summary>
+            <param name="hub"></param>
+            <param name="jobLog"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalDashboard.NotificationHubExtensions.JobProgress(Microsoft.AspNetCore.SignalR.IHubContext{UniversalDashboard.NotificationHub},System.String)">
+            <summary>
+            
+            </summary>
+            <param name="hub"></param>
+            <param name="job"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalDashboard.NotificationHubExtensions.SendConnectionId(Microsoft.AspNetCore.SignalR.IHubContext{UniversalDashboard.NotificationHub},System.String)">
+            <summary>
+            
+            </summary>
+            <param name="hub"></param>
+            <param name="connectionId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalDashboard.NotificationHubExtensions.TagDeleted(Microsoft.AspNetCore.SignalR.IHubContext{UniversalDashboard.NotificationHub},System.String)">
+            <summary>
+            
+            </summary>
+            <param name="hub"></param>
+            <param name="tag"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UniversalDashboard.NotificationHub">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:UniversalDashboard.TerminalHub">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalDashboard.TerminalHub.#ctor(PowerShellUniversal.IDatabase,Microsoft.Extensions.Logging.ILogger{UniversalDashboard.TerminalHub},PowerShellUniversal.ITerminalManager,UniversalAutomation.IIdentityService)">
+            <summary>
+            
+            </summary>
+            <param name="database"></param>
+            <param name="logger"></param>
+            <param name="terminalManager"></param>
+            <param name="identityService"></param>
+        </member>
+        <member name="M:Universal.Server.Controllers.ComponentController.SyncAsync(System.String)">
+            <summary>
+            Syncs a PowerShell Universal UI component. 
+            </summary>
+            <param name="id">The ID of the element to sync.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Universal.Server.Controllers.LicenseController">
+            <summary>
+            Manages licenses
+            </summary>
+        </member>
+        <member name="M:Universal.Server.Controllers.LicenseController.#ctor(UniversalAutomation.Common.Interfaces.ILicenseService,UniversalAutomation.Common.Interfaces.INotificationService,PowerShellUniversal.IDatabase,UniversalAutomation.IUniversalConfigurationService,UniversalAutomation.IIdentityService,UniversalAutomation.IGitSyncService)">
+            <summary>
+            
+            </summary>
+            <param name="licenseService"></param>
+            <param name="notificationService"></param>
+            <param name="database"></param>
+            <param name="configService"></param>
+            <param name="identityService"></param>
+            <param name="gitSyncService"></param>
+        </member>
+        <member name="M:Universal.Server.Controllers.LicenseController.GetDeveloperLicense(System.Int64)">
+            <summary>
+            Returns a developer licenses
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Server.Controllers.LicenseController.GetLicenses">
+            <summary>
+            Returns licenses
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Server.Controllers.LicenseController.Post(PowerShellUniversal.License)">
+            <summary>
+            Adds a new license.
+            </summary>
+            <param name="license"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Server.Controllers.LicenseController.Delete(System.Int64)">
+            <summary>
+            Deletes a license
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Server.Controllers.LicenseController.GetLicensedFeatures">
+            <summary>
+            Returns which features are licensed.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Server.Controllers.ModuleController.Get">
+            <summary>
+            Returns a list of all modules.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Server.Controllers.PublishedFolderController.Get(System.Int64)">
+            <summary>
+            Returns a published folder by ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Server.Controllers.PublishedFolderController.Put(System.Int64,PowerShellUniversal.PublishedFolder)">
+            <summary>
+            Updates a published folder. 
+            </summary>
+            <param name="id"></param>
+            <param name="publishedFolder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Server.Controllers.PublishedFolderController.Post(PowerShellUniversal.PublishedFolder)">
+            <summary>
+            Create new published Folder. 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Server.Controllers.PublishedFolderController.Get">
+            <summary>
+            Return all published folders. 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Server.Controllers.PublishedFolderController.Delete(System.Int64)">
+            <summary>
+            Deletes a folder from publishedFolders. 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Universal.Server.Services.HotKeyController">
+            <summary>
+            Returns version information.
+            </summary>
+        </member>
+        <member name="M:Universal.Server.Services.HotKeyController.#ctor(PowerShellUniversal.IDatabase,UniversalAutomation.IUniversalConfigurationService,UniversalAutomation.IIdentityService)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Universal.Server.Services.HotKeyController.Get">
+            <summary>
+            Returns the hot keys.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Universal.Server.Services.VersionController">
+            <summary>
+            Returns version information.
+            </summary>
+        </member>
+        <member name="M:Universal.Server.Services.VersionController.#ctor(PowerShellUniversal.IUpdateCheckService)">
+            <summary>
+            
+            </summary>
+            <param name="updateCheckService"></param>
+        </member>
+        <member name="M:Universal.Server.Services.VersionController.Get">
+            <summary>
+            Returns the current version.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Server.Services.VersionController.GetUpdate">
+            <summary>
+            Returns information about an updated version.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Universal.Server.Services.VsCodeConnectController">
+            <summary>
+            Provides services for connecting VS Code.
+            </summary>
+        </member>
+        <member name="M:Universal.Server.Services.VsCodeConnectController.#ctor(Microsoft.Extensions.Caching.Memory.IMemoryCache,PowerShellUniversal.IConfigurationService,PowerShellUniversal.IDatabase,UniversalAutomation.Common.Interfaces.IJwtGenerator,UniversalAutomation.Common.Interfaces.IAppTokenService,UniversalAutomation.IIdentityService,Microsoft.Extensions.Logging.ILogger{Universal.Server.Services.VsCodeConnectController})">
+            <summary>
+            
+            </summary>
+            <param name="memoryCache"></param>
+            <param name="configService"></param>
+            <param name="database"></param>
+            <param name="jwtGenerator"></param>
+            <param name="appTokenService"></param>
+            <param name="identityService"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:Universal.Server.Services.VsCodeConnectController.Post(System.Boolean)">
+            <summary>
+            Returns a callback for VS Code.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Server.Services.VsCodeConnectController.Get(System.String)">
+            <summary>
+            Returns connection information back to VS Code
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Universal.Server.Services.MyAuthenticationSchemeProvider">
+            <summary>
+            Implements <see cref="T:Microsoft.AspNetCore.Authentication.IAuthenticationSchemeProvider"/>.
+            </summary>
+        </member>
+        <member name="M:Universal.Server.Services.MyAuthenticationSchemeProvider.#ctor(Microsoft.Extensions.Options.IOptions{Microsoft.AspNetCore.Authentication.AuthenticationOptions},PowerShellUniversal.IDatabase,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Creates an instance of <see cref="T:Microsoft.AspNetCore.Authentication.AuthenticationSchemeProvider"/>
+            using the specified <paramref name="options"/>,
+            </summary>
+            <param name="options">The <see cref="T:Microsoft.AspNetCore.Authentication.AuthenticationOptions"/> options.</param>
+            <param name="database"></param>
+            <param name="configuration"></param>
+        </member>
+        <member name="M:Universal.Server.Services.MyAuthenticationSchemeProvider.#ctor(Microsoft.Extensions.Options.IOptions{Microsoft.AspNetCore.Authentication.AuthenticationOptions},System.Collections.Generic.IDictionary{System.String,Microsoft.AspNetCore.Authentication.AuthenticationScheme},PowerShellUniversal.IDatabase,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Creates an instance of <see cref="T:Microsoft.AspNetCore.Authentication.AuthenticationSchemeProvider"/>
+            using the specified <paramref name="options"/> and <paramref name="schemes"/>.
+            </summary>
+            <param name="options">The <see cref="T:Microsoft.AspNetCore.Authentication.AuthenticationOptions"/> options.</param>
+            <param name="schemes">The dictionary used to store authentication schemes.</param>
+            <param name="database"></param>
+            <param name="configuration"></param>
+        </member>
+        <member name="T:Universal.Server.Services.PluginService">
+            <summary>
+            Loads plugins.
+            </summary>
+        </member>
+        <member name="T:Universal.Server.Middleware.RoutingMiddleware">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Universal.Server.Middleware.RoutingMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,Universal.Server.Middleware.UniversalRoutingOptions,Microsoft.Extensions.Logging.ILogger{Universal.Server.Middleware.RoutingMiddleware},Microsoft.AspNetCore.StaticFiles.IContentTypeProvider,PowerShellUniversal.IDatabase,UniversalAutomation.IApiService,Universal.Server.Services.IPublishedFolderService,UniversalAutomation.Common.Interfaces.ILicenseService)">
+            <summary>
+            
+            </summary>
+            <param name="next"></param>
+            <param name="options"></param>
+            <param name="logger"></param>
+            <param name="contentTypeProvider"></param>
+            <param name="database"></param>
+            <param name="apiService"></param>
+            <param name="publishedFolderService"></param>
+            <param name="licenseService"></param>
+        </member>
+        <member name="M:Universal.Server.Middleware.RoutingMiddleware.Invoke(Microsoft.AspNetCore.Http.HttpContext,Microsoft.AspNetCore.Authorization.Policy.IPolicyEvaluator)">
+            <summary>
+            
+            </summary>
+            <param name="httpContext"></param>
+            <param name="policyEvaluator"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Server.Middleware.RoutingMiddleware.Serve(Microsoft.AspNetCore.Http.HttpContext,System.String,System.String,Microsoft.AspNetCore.StaticFiles.IContentTypeProvider,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            
+            </summary>
+            <param name="httpContext"></param>
+            <param name="baseUrl"></param>
+            <param name="basePath"></param>
+            <param name="contentTypeProvider"></param>
+            <param name="logger"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Server.Middleware.RoutingMiddleware.Serve(Microsoft.AspNetCore.Http.HttpContext,PowerShellUniversal.Dashboard,Microsoft.AspNetCore.StaticFiles.IContentTypeProvider,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            
+            </summary>
+            <param name="httpContext"></param>
+            <param name="dashboard"></param>
+            <param name="contentTypeProvider"></param>
+            <param name="logger"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Server.Middleware.RoutingMiddleware.WriteIndex(Microsoft.AspNetCore.Http.HttpContext,System.String,System.String,System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="httpContext"></param>
+            <param name="baseUrl"></param>
+            <param name="indexPath"></param>
+            <param name="dashboardId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Universal.Server.Middleware.RoutingApplicationBuilderExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Universal.Server.Middleware.RoutingApplicationBuilderExtensions.UseUniversalRouting(Microsoft.AspNetCore.Builder.IApplicationBuilder,Universal.Server.Middleware.UniversalRoutingOptions)">
+            <summary>
+            
+            </summary>
+            <param name="app"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Universal.Server.Middleware.UniversalRoutingOptions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Universal.Server.Middleware.UniversalRoutingOptions.SpaRouteOptions">
+            <summary>
+            
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Universal.Server.Middleware.SpaRouteOptions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Universal.Server.Middleware.SpaRouteOptions.Route">
+            <summary>
+            
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Universal.Server.Middleware.SpaRouteOptions.Path">
+            <summary>
+            
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:PowerShellProTools.UniversalDashboard.Controllers.JavaScriptController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:PowerShellProTools.UniversalDashboard.Controllers.JavaScriptController.#ctor(UniversalDashboard.Interfaces.IDashboardManager,Microsoft.Extensions.Logging.ILogger{PowerShellProTools.UniversalDashboard.Controllers.JavaScriptController})">
+            <summary>
+            
+            </summary>
+            <param name="dashboardManager"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:PowerShellProTools.UniversalDashboard.Controllers.JavaScriptController.Index(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="asset"></param>
+            <returns></returns>
+        </member>
+        <member name="T:PowerShellProTools.UniversalDashboard.Controllers.LogController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:PowerShellProTools.UniversalDashboard.Controllers.LogController.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Logging.ILogger{PowerShellProTools.UniversalDashboard.Controllers.LogController})">
+            <summary>
+            
+            </summary>
+            <param name="configuration"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:PowerShellProTools.UniversalDashboard.Controllers.LogController.Index">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:PowerShellUniversal.DesktopHubExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:PowerShellUniversal.DesktopHubExtensions.HotkeyAdded(Microsoft.AspNetCore.SignalR.IHubContext{PowerShellUniversal.DesktopHub},PowerShellUniversal.HotKey)">
+            <summary>
+            
+            </summary>
+            <param name="hub"></param>
+            <param name="hotkey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PowerShellUniversal.DesktopHubExtensions.HotkeyRemoved(Microsoft.AspNetCore.SignalR.IHubContext{PowerShellUniversal.DesktopHub},PowerShellUniversal.HotKey)">
+            <summary>
+            
+            </summary>
+            <param name="hub"></param>
+            <param name="hotkey"></param>
+            <returns></returns>
+        </member>
+        <member name="T:PowerShellUniversal.DesktopHub">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:PowerShellUniversal.DesktopHub.OnConnectedAsync">
+            <summary>
+             
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:PowerShellUniversal.ClaimsTransformation">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:PowerShellUniversal.ClaimsTransformation.#ctor(PowerShellUniversal.IClaimsEvaluator,PowerShellUniversal.IDatabase)">
+            <summary>
+            
+            </summary>
+            <param name="claimsEvaluator"></param>
+            <param name="database"></param>
+        </member>
+        <member name="M:PowerShellUniversal.ClaimsTransformation.TransformAsync(System.Security.Claims.ClaimsPrincipal)">
+            <summary>
+            
+            </summary>
+            <param name="principal"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

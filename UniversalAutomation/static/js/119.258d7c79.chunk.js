@@ -1,0 +1,2 @@
+(this["webpackJsonppowershelluniversal.adminconsole"]=this["webpackJsonppowershelluniversal.adminconsole"]||[]).push([[119],{1192:function(e,s,r){"use strict";r.r(s),r.d(s,"default",(function(){return o}));r(0);var i=r(926),n=r(45),l=r(4);function o(e){var s=e.isVisible,r=e.setIsVisible;return Object(l.jsx)(i.default,{size:"small",style:{backgroundColor:s?n.presetPrimaryColors.blue:n.presetPrimaryColors.red},checkedChildren:"Show Time",unCheckedChildren:"Hide Time",checked:s,onChange:r})}}}]);
+//# sourceMappingURL=119.258d7c79.chunk.js.map

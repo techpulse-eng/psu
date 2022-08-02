@@ -1,0 +1,27 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+#root {
+    height:100%
+}
+
+.layout .logo {
+    /* width: 120px;
+    height: 31px; */
+    color: #fff;
+    font-weight: bold;
+    margin: 0 24px 0 0; 
+    float: left;
+  }
+
+.logo img {
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+}
+
+.ant-layout-header {
+    padding-left: 25px;
+}
