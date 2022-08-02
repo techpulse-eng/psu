@@ -1,0 +1,2 @@
+(this["webpackJsonppowershelluniversal.adminconsole"]=this["webpackJsonppowershelluniversal.adminconsole"]||[]).push([[138],{1494:function(e,t,n){"use strict";n.r(t),n.d(t,"default",(function(){return r}));var s=n(12),c=(n(0),n(408)),l=n(3);function r(e){return Object(l.jsxs)(c.a.Group,Object(s.a)(Object(s.a)({},e),{},{buttonStyle:"solid",children:[Object(l.jsx)(c.a.Button,{value:"simple",children:"Simple"}),Object(l.jsx)(c.a.Button,{value:"secret",children:"Secret"})]}))}}}]);
+//# sourceMappingURL=138.8c4be1da.chunk.js.map

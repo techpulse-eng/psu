@@ -1,0 +1,2 @@
+(this["webpackJsonppowershelluniversal.adminconsole"]=this["webpackJsonppowershelluniversal.adminconsole"]||[]).push([[8],{1003:function(e,n,t){"use strict";t.r(n),t.d(n,"default",(function(){return a}));t(0);var s=t(928),i=t(70),o=t(593),r=t(3);function a(e){var n=e.title;return Object(r.jsx)(s.a,{title:n,status:"warning",extra:Object(r.jsx)(i.a,{icon:Object(r.jsx)(o.a,{}),onClick:function(){window.location.href="https://ironmansoftware.com/powershell-universal?rel=product"},children:"Buy License"})})}}}]);
+//# sourceMappingURL=8.fc3ac39d.chunk.js.map

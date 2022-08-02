@@ -1,0 +1,2 @@
+(this["webpackJsonppowershelluniversal.adminconsole"]=this["webpackJsonppowershelluniversal.adminconsole"]||[]).push([[115],{1492:function(e,s,n){"use strict";n.r(s),n.d(s,"default",(function(){return r}));var t=n(12),o=(n(0),n(448)),a=n(3);function r(e){return Object(a.jsx)(o.a,Object(t.a)(Object(t.a)({},e),{},{showTime:!0,format:"YYYY-MM-DD HH:mm:ss"}))}}}]);
+//# sourceMappingURL=115.53728279.chunk.js.map

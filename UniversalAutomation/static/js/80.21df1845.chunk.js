@@ -1,0 +1,2 @@
+(this["webpackJsonppowershelluniversal.adminconsole"]=this["webpackJsonppowershelluniversal.adminconsole"]||[]).push([[80],{1432:function(e,n,s){"use strict";s.r(n),s.d(n,"default",(function(){return l}));s(0);var a=s(961),r=s(958),t=s(594),o=s(3);function l(e){return Object(o.jsx)(a.a,{bordered:!1,children:Object(o.jsx)(r.a,{title:"Total running dashboards",value:e.running,valueStyle:{color:"#1890ff"},suffix:"/ ".concat(e.total," Dashboards"),prefix:Object(o.jsx)(t.a,{})})})}}}]);
+//# sourceMappingURL=80.21df1845.chunk.js.map

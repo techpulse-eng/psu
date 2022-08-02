@@ -4,11 +4,6 @@
         <name>Universal.Server</name>
     </assembly>
     <members>
-        <member name="T:UniversalAutomation.AccessControlController">
-            <summary>
-            
-            </summary>
-        </member>
         <member name="T:UniversalAutomation.AliveController">
             <summary>
             
@@ -26,7 +21,7 @@
         </member>
         <member name="M:UniversalAutomation.AliveController.Get">
             <summary>
-            Returns 200 if the system is alive. If an AliveKey is specified, the system app token will be returned. 
+            Returns 200 if the system is alive.
             </summary>
             <returns></returns>
         </member>
@@ -172,13 +167,15 @@
             
             </summary>
         </member>
-        <member name="M:UniversalAutomation.ConfigurationController.#ctor(UniversalAutomation.IUniversalConfigurationService,Microsoft.Extensions.Logging.ILogger{UniversalAutomation.ConfigurationController},UniversalAutomation.IGitSyncService)">
+        <member name="M:UniversalAutomation.ConfigurationController.#ctor(UniversalAutomation.IUniversalConfigurationService,Microsoft.Extensions.Logging.ILogger{UniversalAutomation.ConfigurationController},UniversalAutomation.IGitSyncService,PowerShellUniversal.IConfigurationService,UniversalAutomation.IGitService)">
             <summary>
             
             </summary>
             <param name="configService"></param>
             <param name="logger"></param>
             <param name="gitSyncService"></param>
+            <param name="configurationService"></param>
+            <param name="gitService"></param>
         </member>
         <member name="M:UniversalAutomation.ConfigurationController.Post">
             <summary>
@@ -231,7 +228,7 @@
             Manages dashboards
             </summary>
         </member>
-        <member name="M:UniversalAutomation.DashboardController.#ctor(PowerShellUniversal.IDatabase,Microsoft.Extensions.Logging.ILogger{UniversalAutomation.DashboardController},UniversalDashboard.Interfaces.IDashboardManager,UniversalAutomation.IUniversalConfigurationService,UniversalAutomation.IIdentityService,UniversalAutomation.IDashboardAssetManager,UniversalAutomation.Common.Interfaces.INotificationService,UniversalAutomation.IGitSyncService)">
+        <member name="M:UniversalAutomation.DashboardController.#ctor(PowerShellUniversal.IDatabase,Microsoft.Extensions.Logging.ILogger{UniversalAutomation.DashboardController},UniversalDashboard.Interfaces.IDashboardManager,UniversalAutomation.IUniversalConfigurationService,UniversalAutomation.IIdentityService,UniversalAutomation.IDashboardAssetManager,UniversalAutomation.Common.Interfaces.INotificationService,UniversalAutomation.IGitSyncService,PowerShellUniversal.IHttpService)">
             <summary>
             
             </summary>
@@ -243,6 +240,7 @@
             <param name="assetManager"></param>
             <param name="notificationService"></param>
             <param name="gitSyncService"></param>
+            <param name="httpService"></param>
         </member>
         <member name="M:UniversalAutomation.DashboardController.Post(PowerShellUniversal.Dashboard)">
             <summary>
@@ -251,7 +249,7 @@
             <param name="dashboard"></param>
             <returns></returns>
         </member>
-        <member name="M:UniversalAutomation.DashboardController.Terminal(System.Int64,UniversalDashboard.Controllers.TerminalCommand)">
+        <member name="M:UniversalAutomation.DashboardController.Terminal(System.Int64,PowerShellUniversal.TerminalCommand)">
             <summary>
             Issues a command against a dashboard.
             </summary>
@@ -589,6 +587,39 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:UniversalAutomation.GitController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UniversalAutomation.GitController.#ctor(PowerShellUniversal.IDatabase,UniversalAutomation.IGitSyncService,UniversalAutomation.IGitService,PowerShellUniversal.IConfigurationService,PowerShellUniversal.IGitSettingsService)">
+            <summary>
+            
+            </summary>
+            <param name="database"></param>
+            <param name="gitSyncService"></param>
+            <param name="gitService"></param>
+            <param name="configurationService"></param>
+            <param name="gitSettingsService"></param>
+        </member>
+        <member name="M:UniversalAutomation.GitController.Get">
+            <summary>
+            Returns a collection of the git sync statuses.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.GitController.Post(PowerShellUniversal.GitSettings)">
+            <summary>
+            Creates or updates the git settings.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.GitController.Sync">
+            <summary>
+            Forces a git sync
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:UniversalAutomation.GitStatusController">
             <summary>
             
@@ -613,6 +644,14 @@
             Returns the changes for the specified git commit.
             </summary>
             <param name="sha"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.GitStatusController.GetDiff(System.String,System.String)">
+            <summary>
+            Returns a diff of the file between the specified commits.
+            </summary>
+            <param name="sha"></param>
+            <param name="path"></param>
             <returns></returns>
         </member>
         <member name="M:UniversalAutomation.GitStatusController.GetSettings">
@@ -747,6 +786,13 @@
         <member name="M:UniversalAutomation.JobController.GetOutput(System.Int64)">
             <summary>
             Gets the output for the specified job.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UniversalAutomation.JobController.GetLogOutputFile(System.Int64)">
+            <summary>
+            Gets the output for the specified job as a text file.
             </summary>
             <param name="id"></param>
             <returns></returns>
@@ -1124,7 +1170,7 @@
             
             </summary>
         </member>
-        <member name="M:UniversalAutomation.ScriptController.#ctor(PowerShellUniversal.IDatabase,UniversalAutomation.IGitService,Microsoft.Extensions.Logging.ILogger{UniversalAutomation.ScriptController},UniversalAutomation.IIdentityService,UniversalAutomation.IUniversalConfigurationService,UniversalAutomation.IScheduleDescriptionService,UniversalAutomation.Common.Interfaces.INotificationService,UniversalAutomation.Common.IAccessControlService,PowerShellUniversal.IUniversalClient,UniversalAutomation.IGitSyncService)">
+        <member name="M:UniversalAutomation.ScriptController.#ctor(PowerShellUniversal.IDatabase,UniversalAutomation.IGitService,Microsoft.Extensions.Logging.ILogger{UniversalAutomation.ScriptController},UniversalAutomation.IIdentityService,UniversalAutomation.IUniversalConfigurationService,UniversalAutomation.IScheduleDescriptionService,UniversalAutomation.Common.Interfaces.INotificationService,UniversalAutomation.Common.IAccessControlService,PowerShellUniversal.IClient,UniversalAutomation.IGitSyncService)">
             <summary>
             
             </summary>
@@ -1297,7 +1343,7 @@
             
             </summary>
         </member>
-        <member name="M:UniversalAutomation.SettingsController.#ctor(UniversalAutomation.IUniversalConfigurationService,PowerShellUniversal.IDatabase,UniversalAutomation.ILogConfiguration,Microsoft.Extensions.Logging.ILogger{UniversalAutomation.SettingsController},PowerShellUniversal.IConfigurationService,UniversalAutomation.IIdentityService,UniversalAutomation.IGitSyncService)">
+        <member name="M:UniversalAutomation.SettingsController.#ctor(UniversalAutomation.IUniversalConfigurationService,PowerShellUniversal.IDatabase,UniversalAutomation.ILogConfiguration,Microsoft.Extensions.Logging.ILogger{UniversalAutomation.SettingsController},PowerShellUniversal.IConfigurationService,UniversalAutomation.IIdentityService,UniversalAutomation.IGitSyncService,PowerShellUniversal.IGitSettingsService)">
             <summary>
             
             </summary>
@@ -1308,6 +1354,7 @@
             <param name="configurationService"></param>
             <param name="identityService"></param>
             <param name="gitSyncService"></param>
+            <param name="gitSettings"></param>
         </member>
         <member name="M:UniversalAutomation.SettingsController.Put(PowerShellUniversal.Settings)">
             <summary>
@@ -1413,89 +1460,6 @@
             <param name="name"></param>
             <returns></returns>
         </member>
-        <member name="T:UniversalAutomation.TerminalController">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:UniversalAutomation.TerminalController.#ctor(PowerShellUniversal.IDatabase,UniversalAutomation.IUniversalConfigurationService,UniversalAutomation.IIdentityService,UniversalAutomation.IGitSyncService,PowerShellUniversal.ITerminalManager)">
-            <summary>
-            
-            </summary>
-            <param name="database"></param>
-            <param name="configService"></param>
-            <param name="identityService"></param>
-            <param name="gitSyncService"></param>
-            <param name="terminalManager"></param>
-        </member>
-        <member name="M:UniversalAutomation.TerminalController.Get">
-            <summary>
-            Returns all terminals.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:UniversalAutomation.TerminalController.Get(System.String)">
-            <summary>
-            Get terminal by name.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:UniversalAutomation.TerminalController.Get(System.Int64)">
-            <summary>
-            Get role by id.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:UniversalAutomation.TerminalController.Update(System.Int64,PowerShellUniversal.Terminal)">
-            <summary>
-            Update terminal by id.
-            </summary>
-            <param name="id"></param>
-            <param name="terminal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:UniversalAutomation.TerminalController.Post(PowerShellUniversal.Terminal)">
-            <summary>
-            Add new terminal
-            </summary>
-            <param name="terminal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:UniversalAutomation.TerminalController.GetInstances">
-            <summary>
-            Returns terminal instances.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:UniversalAutomation.TerminalController.NewInstance(PowerShellUniversal.Terminal)">
-            <summary>
-            Opens a terminal instance.
-            </summary>
-            <param name="terminal"></param>
-            <returns></returns>
-        </member>
-        <member name="M:UniversalAutomation.TerminalController.InvokeCommand(System.Int64,System.String)">
-            <summary>
-            Invokes a command in the instance of the terminal.
-            </summary>
-            <param name="id"></param>
-            <param name="command"></param>
-            <returns></returns>
-        </member>
-        <member name="M:UniversalAutomation.TerminalController.StopInstance(System.Int64)">
-            <summary>
-            Terminates a terminal instance.
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:UniversalAutomation.TerminalController.Delete(System.Int64)">
-            <summary>
-            Deletes a terminal
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
-        </member>
         <member name="T:UniversalAutomation.TriggerController">
             <summary>
             
@@ -1555,7 +1519,7 @@
             
             </summary>
         </member>
-        <member name="M:UniversalAutomation.VariableController.#ctor(PowerShellUniversal.IDatabase,UniversalAutomation.IUniversalConfigurationService,UniversalAutomation.ISecretManagerService,UniversalAutomation.IIdentityService,UniversalAutomation.IGitSyncService,UniversalAutomation.Common.IAccessControlService)">
+        <member name="M:UniversalAutomation.VariableController.#ctor(PowerShellUniversal.IDatabase,UniversalAutomation.IUniversalConfigurationService,UniversalAutomation.ISecretManagerService,UniversalAutomation.IIdentityService,UniversalAutomation.IGitSyncService,UniversalAutomation.Common.IAccessControlService,PowerShellUniversal.IClient)">
             <summary>
             
             </summary>
@@ -1565,6 +1529,7 @@
             <param name="identityService"></param>
             <param name="gitSyncService"></param>
             <param name="accessControlService"></param>
+            <param name="client"></param>
         </member>
         <member name="M:UniversalAutomation.VariableController.Put(PowerShellUniversal.Variable)">
             <summary>
@@ -1611,11 +1576,12 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:UniversalAutomation.VariableController.Delete(System.Int64)">
+        <member name="M:UniversalAutomation.VariableController.Delete(System.Int64,System.Boolean)">
             <summary>
             Deletes a variable by ID.
             </summary>
             <param name="id"></param>
+            <param name="removeSecret"></param>
             <returns></returns>
         </member>
         <member name="M:UniversalAutomation.VariableController.GetVaults">
@@ -1643,39 +1609,28 @@
             
             </summary>
         </member>
-        <member name="M:UniversalAutomation.Services.GrpcExecutionCallback.reportRunspace(UniversalAutomationProtocol.reportRunspaceRequest,Grpc.Core.ServerCallContext)">
+        <member name="M:UniversalAutomation.Services.GrpcExecutionCallback.ReportProgress(PowerShellUniversal.JobProgress)">
             <summary>
             
             </summary>
             <param name="request"></param>
-            <param name="context"></param>
             <returns></returns>
         </member>
-        <member name="M:UniversalAutomation.Services.GrpcExecutionCallback.reportProgress(UniversalAutomationProtocol.reportProgressRequest,Grpc.Core.ServerCallContext)">
+        <member name="M:UniversalAutomation.Services.GrpcExecutionCallback.RequestFeedback(PowerShellUniversal.JobFeedbackRequest)">
             <summary>
             
             </summary>
             <param name="request"></param>
-            <param name="context"></param>
             <returns></returns>
         </member>
-        <member name="M:UniversalAutomation.Services.GrpcExecutionCallback.requestFeedback(UniversalAutomationProtocol.requestFeedbackRequest,Grpc.Core.ServerCallContext)">
+        <member name="M:UniversalAutomation.Services.GrpcExecutionCallback.SetAgentInformation(PowerShellUniversal.AgentInformation)">
+            
+        </member>
+        <member name="M:UniversalAutomation.Services.GrpcExecutionCallback.Write(PowerShellUniversal.JobWriteHost)">
             <summary>
             
             </summary>
             <param name="request"></param>
-            <param name="context"></param>
-            <returns></returns>
-        </member>
-        <member name="M:UniversalAutomation.Services.GrpcExecutionCallback.setAgentPort(agentPort,Grpc.Core.ServerCallContext)">
-            
-        </member>
-        <member name="M:UniversalAutomation.Services.GrpcExecutionCallback.write(UniversalAutomationProtocol.writeHostRequest,Grpc.Core.ServerCallContext)">
-            <summary>
-            
-            </summary>
-            <param name="request"></param>
-            <param name="context"></param>
             <returns></returns>
         </member>
         <member name="T:UniversalAutomation.Services.IntegratedProtocol">
@@ -1720,29 +1675,6 @@
         </member>
         <member name="M:UniversalAutomation.Services.UniversalConfigurationService.Dispose">
             
-        </member>
-        <member name="T:UniversalAutomation.IIdentityService">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:UniversalAutomation.IIdentityService.GetIdentityAsync">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:UniversalAutomation.IIdentityService.GetOrCreateIdentity(System.String,PowerShellUniversal.IdentitySource)">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:UniversalAutomation.IIdentityService.GetAppToken">
-            <summary>
-            
-            </summary>
-            <returns></returns>
         </member>
         <member name="T:UniversalAutomation.IdentityService">
             <summary>
@@ -1837,21 +1769,14 @@
             <param name="notificationService"></param>
             <param name="memoryCache"></param>
         </member>
-        <member name="M:UniversalAutomation.ExecutionCallback.ReportRunspace(UniversalAutomationProtocol.reportRunspaceRequest)">
+        <member name="M:UniversalAutomation.ExecutionCallback.ReportProgress(PowerShellUniversal.JobProgress)">
             <summary>
             
             </summary>
             <param name="request"></param>
             <returns></returns>
         </member>
-        <member name="M:UniversalAutomation.ExecutionCallback.ReportProgress(UniversalAutomationProtocol.reportProgressRequest)">
-            <summary>
-            
-            </summary>
-            <param name="request"></param>
-            <returns></returns>
-        </member>
-        <member name="M:UniversalAutomation.ExecutionCallback.RequestFeedback(UniversalAutomationProtocol.requestFeedbackRequest)">
+        <member name="M:UniversalAutomation.ExecutionCallback.RequestFeedback(PowerShellUniversal.JobFeedbackRequest)">
             <summary>
             
             </summary>
@@ -1861,7 +1786,7 @@
         <member name="M:UniversalAutomation.ExecutionCallback.SetReady">
             
         </member>
-        <member name="M:UniversalAutomation.ExecutionCallback.Write(UniversalAutomationProtocol.writeHostRequest)">
+        <member name="M:UniversalAutomation.ExecutionCallback.Write(PowerShellUniversal.JobWriteHost)">
             <summary>
             
             </summary>
@@ -1926,18 +1851,17 @@
             
             </summary>
         </member>
-        <member name="M:UniversalAutomation.GitSyncService.#ctor(UniversalAutomation.IGitService,PowerShellUniversal.IConfigurationService,PowerShellUniversal.IDatabase,Microsoft.Extensions.Logging.ILogger{UniversalAutomation.GitSyncService},UniversalAutomation.IUniversalConfigurationService,UniversalAutomation.IDashboardAssetManager,UniversalAutomation.Common.Interfaces.ILicenseService,UniversalAutomation.Common.Interfaces.INotificationService)">
+        <member name="M:UniversalAutomation.GitSyncService.#ctor(UniversalAutomation.IGitService,PowerShellUniversal.IDatabase,Microsoft.Extensions.Logging.ILogger{UniversalAutomation.GitSyncService},UniversalAutomation.IUniversalConfigurationService,UniversalAutomation.IDashboardAssetManager,UniversalAutomation.Common.Interfaces.INotificationService,PowerShellUniversal.IGitSettingsService)">
             <summary>
             
             </summary>
             <param name="gitService"></param>
-            <param name="configurationService"></param>
             <param name="database"></param>
             <param name="logger"></param>
             <param name="universalConfigService"></param>
             <param name="dashboardAssetManager"></param>
-            <param name="licenseService"></param>
             <param name="notificationService"></param>
+            <param name="gitSettingsService"></param>
         </member>
         <member name="M:UniversalAutomation.GitSyncService.Sync">
             <summary>
@@ -1953,6 +1877,18 @@
             
         </member>
         <member name="M:UniversalAutomation.GroomService.Groom">
+            
+            
+        </member>
+        <member name="T:UniversalAutomation.HeartBeatService">
+            
+            
+        </member>
+        <member name="M:UniversalAutomation.HeartBeatService.#ctor(PowerShellUniversal.IDatabase,Microsoft.Extensions.Logging.ILogger{UniversalAutomation.GroomService})">
+            
+            
+        </member>
+        <member name="M:UniversalAutomation.HeartBeatService.Run">
             
             
         </member>
@@ -1975,7 +1911,7 @@
         <member name="M:UniversalAutomation.LogConfiguration.#ctor">
             
         </member>
-        <member name="M:UniversalAutomation.LogConfiguration.#ctor(Microsoft.Extensions.Logging.ILogger{UniversalAutomation.LogConfiguration},Microsoft.Extensions.Configuration.IConfiguration)">
+        <member name="M:UniversalAutomation.LogConfiguration.#ctor(Microsoft.Extensions.Logging.ILogger{UniversalAutomation.LogConfiguration},Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.SignalR.IHubContext{PowerShellUniversal.SystemLogHub,Serilog.Sinks.SignalR.Core.Interfaces.ISerilogHub})">
             
         </member>
         <member name="M:UniversalAutomation.LogConfiguration.Configure(PowerShellUniversal.Settings)">
@@ -2021,7 +1957,7 @@
         <member name="T:UniversalAutomation.StartupService">
             
         </member>
-        <member name="M:UniversalAutomation.StartupService.#ctor(PowerShellUniversal.IDatabase,UniversalAutomation.IGitSyncService,UniversalDashboard.Interfaces.IDashboardManager,Universal.ISecurityProxy,UniversalAutomation.IDashboardAssetManager,Microsoft.Extensions.Logging.ILogger{UniversalAutomation.StartupService},UniversalAutomation.IApiProxy,UniversalAutomation.IUniversalConfigurationService,UniversalAutomation.IJobService,UniversalAutomation.Common.Interfaces.IAppTokenService,Universal.Server.Services.UniversalService,Microsoft.Extensions.Configuration.IConfiguration,UniversalAutomation.ISecretManagerService)">
+        <member name="M:UniversalAutomation.StartupService.#ctor(PowerShellUniversal.IDatabase,UniversalAutomation.IGitSyncService,UniversalDashboard.Interfaces.IDashboardManager,Universal.ISecurityProxy,UniversalAutomation.IDashboardAssetManager,Microsoft.Extensions.Logging.ILogger{UniversalAutomation.StartupService},UniversalAutomation.IApiService,UniversalAutomation.IUniversalConfigurationService,UniversalAutomation.IJobService,UniversalAutomation.Common.Interfaces.IAppTokenService,PowerShellUniversal.IClient,Microsoft.Extensions.Configuration.IConfiguration,UniversalAutomation.ISecretManagerService)">
             
         </member>
         <member name="T:UniversalAutomation.VariableResolver">
@@ -2294,17 +2230,6 @@
             <param name="requestId"></param>
             <returns></returns>
         </member>
-        <member name="T:UniversalDashboard.Controllers.TerminalCommand">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:UniversalDashboard.Controllers.TerminalCommand.Command">
-            <summary>
-            
-            </summary>
-            <value></value>
-        </member>
         <member name="T:UniversalDashboard.Controllers.UDDashboardController">
             <summary>
             
@@ -2532,24 +2457,18 @@
             <param name="tag"></param>
             <returns></returns>
         </member>
+        <member name="M:UniversalDashboard.NotificationHubExtensions.DashboardLogUpdated(Microsoft.AspNetCore.SignalR.IHubContext{UniversalDashboard.NotificationHub},System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="hub"></param>
+            <param name="dashboardId"></param>
+            <returns></returns>
+        </member>
         <member name="T:UniversalDashboard.NotificationHub">
             <summary>
             
             </summary>
-        </member>
-        <member name="T:UniversalDashboard.TerminalHub">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:UniversalDashboard.TerminalHub.#ctor(PowerShellUniversal.IDatabase,Microsoft.Extensions.Logging.ILogger{UniversalDashboard.TerminalHub},PowerShellUniversal.ITerminalManager,UniversalAutomation.IIdentityService)">
-            <summary>
-            
-            </summary>
-            <param name="database"></param>
-            <param name="logger"></param>
-            <param name="terminalManager"></param>
-            <param name="identityService"></param>
         </member>
         <member name="M:Universal.Server.Controllers.ComponentController.SyncAsync(System.String)">
             <summary>
@@ -2645,22 +2564,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:Universal.Server.Services.HotKeyController">
-            <summary>
-            Returns version information.
-            </summary>
-        </member>
-        <member name="M:Universal.Server.Services.HotKeyController.#ctor(PowerShellUniversal.IDatabase,UniversalAutomation.IUniversalConfigurationService,UniversalAutomation.IIdentityService)">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Universal.Server.Services.HotKeyController.Get">
-            <summary>
-            Returns the hot keys.
-            </summary>
-            <returns></returns>
-        </member>
         <member name="T:Universal.Server.Services.VersionController">
             <summary>
             Returns version information.
@@ -2673,6 +2576,12 @@
             <param name="updateCheckService"></param>
         </member>
         <member name="M:Universal.Server.Services.VersionController.Get">
+            <summary>
+            Returns the current version.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Universal.Server.Services.VersionController.GetBuildVersion">
             <summary>
             Returns the current version.
             </summary>
@@ -2877,35 +2786,74 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:PowerShellUniversal.DesktopHubExtensions">
+        <member name="T:PowerShellUniversal.TranslationController">
             <summary>
             
             </summary>
         </member>
-        <member name="M:PowerShellUniversal.DesktopHubExtensions.HotkeyAdded(Microsoft.AspNetCore.SignalR.IHubContext{PowerShellUniversal.DesktopHub},PowerShellUniversal.HotKey)">
+        <member name="M:PowerShellUniversal.TranslationController.#ctor(PowerShellUniversal.IDatabase,Microsoft.Extensions.Logging.ILogger{PowerShellUniversal.TranslationController},UniversalAutomation.IUniversalConfigurationService,UniversalAutomation.IIdentityService)">
             <summary>
             
             </summary>
-            <param name="hub"></param>
-            <param name="hotkey"></param>
+            <param name="database"></param>
+            <param name="logger"></param>
+            <param name="configService"></param>
+            <param name="identityService"></param>
+        </member>
+        <member name="M:PowerShellUniversal.TranslationController.Get(System.String)">
+            <summary>
+            Returns the translations language.
+            </summary>
+            <param name="languageId"></param>
             <returns></returns>
         </member>
-        <member name="M:PowerShellUniversal.DesktopHubExtensions.HotkeyRemoved(Microsoft.AspNetCore.SignalR.IHubContext{PowerShellUniversal.DesktopHub},PowerShellUniversal.HotKey)">
+        <member name="M:PowerShellUniversal.TranslationController.GetStrings(System.String)">
             <summary>
-            
+            Returns the translations language strings.
             </summary>
-            <param name="hub"></param>
-            <param name="hotkey"></param>
+            <param name="languageId"></param>
             <returns></returns>
         </member>
-        <member name="T:PowerShellUniversal.DesktopHub">
+        <member name="M:PowerShellUniversal.TranslationController.Get">
             <summary>
-            
+            Returns the translation names. 
             </summary>
+            <returns></returns>
         </member>
-        <member name="M:PowerShellUniversal.DesktopHub.OnConnectedAsync">
+        <member name="M:PowerShellUniversal.TranslationController.Delete(System.Int64)">
             <summary>
-             
+            Deletes a language translation.
+            </summary>
+            <param name="languageId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PowerShellUniversal.TranslationController.Post(PowerShellUniversal.Translation)">
+            <summary>
+            Creates a new langauge
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PowerShellUniversal.TranslationController.Put(PowerShellUniversal.Translation)">
+            <summary>
+            Updates a langauge translation
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PowerShellUniversal.TranslationController.AddString(System.String,System.Collections.Generic.KeyValuePair{System.String,System.String})">
+            <summary>
+            Adds a string to a language
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PowerShellUniversal.TranslationController.UpdateString(System.String,System.String,System.Collections.Generic.KeyValuePair{System.String,System.String})">
+            <summary>
+            Updates a string in a language
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PowerShellUniversal.TranslationController.DeleteString(System.String,System.String)">
+            <summary>
+            Deletes a string from a language
             </summary>
             <returns></returns>
         </member>

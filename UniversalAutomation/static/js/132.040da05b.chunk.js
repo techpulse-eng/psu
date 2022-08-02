@@ -1,0 +1,2 @@
+(this["webpackJsonppowershelluniversal.adminconsole"]=this["webpackJsonppowershelluniversal.adminconsole"]||[]).push([[132],{1004:function(e,n,t){"use strict";t.r(n),t.d(n,"default",(function(){return l}));t(0);var o=t(36),r=t(696),s=t(3);function l(e){var n=e.text,t=e.to;return Object(s.jsx)(r.a,{color:"blue",children:Object(s.jsx)(o.b,{style:{color:"inherit"},to:t,children:n})})}}}]);
+//# sourceMappingURL=132.040da05b.chunk.js.map
